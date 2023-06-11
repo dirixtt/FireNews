@@ -1,0 +1,40 @@
+
+/* SelectStyles.css */
+
+.custom-select {
+    width: 200px;
+    font-size: 16px;
+    color: #333;
+    background: #000;
+  }
+  
+  .custom-select .select__control {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+  }
+  
+  .custom-select .select__control:hover {
+    border-color: #999;
+  }
+  
+  .custom-select .select__control:focus {
+    border-color: #555;
+    box-shadow: 0 0 0 2px #e6e6e6;
+  }
+  
+  .custom-select .select__menu {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .custom-select .select__option {
+    color: #333;
+  }
+  
+  .custom-select .select__option:hover {
+    background-color: #e6e6e6;
+    color: #555;
+  }
+  

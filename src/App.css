@@ -1,12 +1,26 @@
 .App {
   text-align: center;
 }
+body {
+  margin: 0;
+  font-family: "Inter", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
-
+.select option:active {
+  background: #000 !important;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -35,4 +49,64 @@
   to {
     transform: rotate(360deg);
   }
+}
+.my-select-container {
+  /* Настройте стили контейнера согласно вашим требованиям */
+  background-color: transparent;
+  color: black;
+}
+
+.my-select {
+  /* Настройте стили для компонента Select */
+  /* Примеры стилей: */
+  width: 200px;
+  font-size: 16px;
+}
+
+.active {
+  display: block;
+}
+::-webkit-scrollbar {
+  width: 5px;
+  padding: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  margin: 1px 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #E50914;
+  border-radius: 5px;
+}
+.active-link{
+  color: #E50914;
+}
+.animation{
+  animation:  anime 3s infinite;
+
+}
+@keyframes anime {
+  0% {
+    background-color: #6e1111;
+    transform: scale(0.5);
+  }
+  50%{
+    background: #ff0000;
+    transform: scale(1);
+
+  }
+  100%{
+    background-color: #6e1111;
+    transform: scale(0.5);
+
+
+  }
+}
+.second .swiper-wrapper{
+  display: flex;
+  /* flex-wrap: wrap; */
+
+ 
 }
