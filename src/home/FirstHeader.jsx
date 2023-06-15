@@ -5,6 +5,7 @@ import { RxTwitterLogo } from 'react-icons/rx'
 import { TbBrandFacebook } from 'react-icons/tb'
 import { FaTelegramPlane, FaInstagram } from 'react-icons/fa'
 import '../App.css'
+import { NavLink } from 'react-router-dom';
 
 
 
@@ -109,11 +110,11 @@ export default function FirstHeader() {
     };
 
     fetchExchangeRate();
-  }, []);
+  }, [eurToUzs, prevEurToUzs, prevRubToUzs, prevUsdToUzs, rubToUzs, usdToUzs]);
   const hover = `hover:text-[#E50914] text-[16px]`
   const style = 'text-black w-[126px] text-left focus:bg-[#E50914] focus:text-white text-[14px] font-[500] p-[10px] rounded hover:bg-pink-200 bg-opacity-50'
   return (
-    <header className='bg-[#1D1D1D] h-10 w-full'>
+    <header className='bg-[#1D1D1D] hidden md:block h-10 w-full'>
       <div className='container justify-between flex items-center h-full text-white'>
         <div className='items-center flex h-full '>
           <div className='w-24 items-center justify-center flex'>
@@ -126,7 +127,7 @@ export default function FirstHeader() {
             <button className='flex items-center' onClick={() => isOpen(!open)}>
               {city}<BsChevronDown className={`${open ? "rotate-180 text-red-500 font-bold" : ""} ml-1 duration-300`} />
             </button>
-            <ul className={`${open ? "block" : "hidden"}  scroll absolute w-[146px] flex-col flex justify-start items-center border p-[5px] right-1.5 border-black border-opacity-50 overflow-y-scroll overflow-x-hidden rounded h-[185px] bg-white top-8`} style={{ maxHeight: '200px' }}>
+            <ul className={`${open ? "block" : "hidden"} z-50 scroll absolute w-[146px] flex-col flex justify-start items-center border p-[5px] right-1.5 border-black border-opacity-50 overflow-y-scroll overflow-x-hidden rounded h-[185px] bg-white top-8`} style={{ maxHeight: '200px' }}>
               <button onClick={onChange} value={"Toshkent"} className={style}>
                 Toshkent
               </button>
@@ -169,15 +170,31 @@ export default function FirstHeader() {
           </div>
         </div>
         <div className='flex text-[15px] items-center gap-3'>
-          <p className='hover:text-[#E50914]'>Aloqa</p>
-          <p className='hover:text-[#E50914]'>Reklama</p>
+          <p className='hover:text-[#E50914]'>
+            <NavLink to="/contacts" className={(navClass) =>
+              navClass.isActive
+                ? "text-[#E50914]"
+                : ""
+            }>
+              Aloqa
+            </NavLink>
+
+          </p>
+          <p className='hover:text-[#E50914]'>
+            <NavLink to="/adv" className={(navClass) =>
+              navClass.isActive
+                ? "text-[#E50914]"
+                : ""
+            }>
+              Reklama
+            </NavLink></p>
           <FaTelegramPlane className={hover} />
           <RxTwitterLogo className={hover} />
           <FaInstagram className={hover} />
           <TbBrandFacebook className={hover} />
         </div>
       </div>
-    </header>
+    </header >
   );
 }
 

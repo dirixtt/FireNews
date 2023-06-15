@@ -1,235 +1,297 @@
-import React, { useEffect, useState } from 'react';
-import SwiperCore, { Navigation, Pagination, Scrollbar, Grid, A11y } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/swiper.min.css';
+import React from 'react';
+
 import { BsCalendar4, BsEye, BsFillLightningFill } from 'react-icons/bs';
-import Slider from "react-slick";
 import dayjs from 'dayjs';
-import { AiOutlineArrowRight, AiOutlineArrowLeft } from 'react-icons/ai';
+
 import Loader from './Loader';
 import { Link } from 'react-router-dom';
-import img from './noimg.jpg' 
+import img from './noimg.jpg'
+import Slider from 'react-slick';
+import '../App.css'
 
-SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
-export default function SecondSwiper({data2 ,data3}) {
+export default function SecondSwiper({ sport, technology }) {
 
-    const swiperRef = React.useRef(null);
 
-    const apiKey = '8e79fb87bdb947f2be52fecea9bfd8f2';
-    const handlePrev = () => {
-        if (swiperRef.current && swiperRef.current.swiper) {
-            swiperRef.current.swiper.slidePrev();
-        }
+    const settings2 = {
+        dots: false,
+        infinite: true,
+        slidesToShow: 4,
+        slidesToScroll: 3,
+        vertical: true,
+        verticalSwiping: true,
+        autoplay: true,
+        speed: 2000,
+        autoplaySpeed: 3000,
+        // responsive: [
+        //     {
+        //         breakpoint: 768,
+        //         settings: {
+        //             slidesToShow: 1,
+        //             slidesToScroll: 1,
+        //         },
+        //     },
+        // ],
     };
+    const settings = {
+        dots: true,
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        speed: 2000,
+        autoplaySpeed: 2000,
+        responsive: [
+          {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+            },
+          },
+        ],
+        appendDots: (dots) => {
+          const visibleDots = dots.slice(-4); // Ограничиваем видимость только 4 точками
+      
+          return (
+            <div
+              style={{
+                position: "absolute",
+                top: "-50px",
+                // width: "30%",
+                right: "0px",
+                paddingLeft: "10px",
+                paddingTop: "10px",
+                display: "flex ",
+                justifyContent: "end"
+              }}
+            >
+              <ul style={{ margin: "0px" }}>{visibleDots}</ul>
+            </div>
+          );
+        },
+        customPaging: () => (
+          <div
+            style={{
+              width: "15px",
+              height: "15px",
+              borderRadius: "50%",
+              background: "rgba(0, 0, 0, 0.5)",
+              margin: "5px",
+            }}
+          ></div>
+        ),
+      };
+      
+      
+      
+      
+      
+      
 
-    const handleNext = () => {
-        if (swiperRef.current && swiperRef.current.swiper) {
-            swiperRef.current.swiper.slideNext();
-        }
-    };
 
     return (
-        <div className='container'>
-            {data3.length > 0 ? (
-                <div className='flex'>
-                    <div className='w-1/2 pr-2'>
+        <div className=''>
+            {technology && sport?.length > 0 ? (
+                <div className='flex justify-between'>
+                    <div className='md:w-[49.5%] w-full pr-2 relative'>
                         <div className='border-b-2 items-center mt-[60px] justify-between text-[20px] flex border-red-500'>
-                            <p className='bg-[#E50914] text-white p-3 rounded-t-[10px]'>Sport</p>
+                            <p className='bg-[#E50914] text-white p-3 rounded-t-[10px]'>
+                              <Link to="/sport">
+                                Sport
+                              </Link>
+                                </p>
                             <div className='flex gap-3'>
-                                <button className='w-[30px] flex justify-center swiper-button-prev active:bg-[#E50914] duration-75 items-center h-[30px] text-white bg-black rounded-full'>
-                                    <AiOutlineArrowLeft />
-                                </button>
-                                <button className='w-[30px] flex justify-center swiper-button-next active:bg-[#E50914] duration-75 items-center h-[30px] text-white bg-black rounded-full'>
-                                    <AiOutlineArrowRight />
-                                </button>
+                                
                             </div>
                         </div>
                         <div>
-                            <Swiper
-                                className='flex flex-wrap'
-                                navigation={false}
-                                pagination={{ clickable: true }}
-                                scrollbar={{ draggable: true }}
-                                spaceBetween={0}
-                                slidesPerView={1}
-                                loop={true}
-                            >
-                                {data3.map((item) => (
-                                    <SwiperSlide className='w-full overflow-hidden my-5' key={item.id}>
+                            <Slider {...settings}>
+                                {sport.map((item, idx) => (
+                                    <div key={idx} className='w-full overflow-hidden my-5'>
                                         <div className='w-[100%] relative rounded text-[18px]'>
                                             <div className='absolute items-center px-4 top-[20px] rounded-b flex justify-between w-full text-[14px]'>
                                                 <p className=' p-1 text-white bg-[#E50914] left-2'>{item.source.name}</p>
                                                 <p className='p-2 rounded text-lg text-white bg-[#E50914] flex justify-center items-center'><BsFillLightningFill /></p>
                                             </div>
-                                            <img className='h-[400px] overflow-hidden w-full rounded' src={item.urlToImage ? item.urlToImage : img} alt='' />
+                                            <img className='md:h-[400px] h-[300px] object-cover overflow-hidden w-full rounded' src={item.urlToImage ? item.urlToImage : img} alt='' />
                                             <div className='absolute bottom-0 bg-black bg-opacity-40 w-full h-[30%] p-[15px] text-white '>
-                                                <p className='hover:text-[#E50914] text-xl'>
-                                                    {item.title.length > 60 ? `${item.title.slice(0, 100)}...` : item.title}
+                                                <p className='hover:text-[#E50914] text-[13px] md:text-xl'>
+                                                    <Link to={`/products/${item.publishedAt}`}>
+                                                        {item.title.length > 60 ? `${item.title.slice(0, 88)}...` : item.title}
+                                                    </Link>
+
                                                 </p>
                                                 <div className='text-[14px] gap-3 flex mt-3'>
                                                     <p className='flex items-center gap-2'>
-                                                        <p className='bg-[#fbbcbce6] p-1 rounded'>
+                                                        <i className='bg-[#fbbcbce6] p-1 rounded'>
                                                             <BsCalendar4 className='text-[#E50914]' />
-                                                        </p>
+                                                        </i>
                                                         {item.publishedAt ? dayjs(item.publishedAt).format('DD MMM, YYYY') : 'No time'}
                                                     </p>
                                                     |
                                                     <p className='flex gap-2'>
-                                                        <p className='bg-[#fbbcbce6] text-[#E50914] p-1 rounded'>
+                                                        <i className='bg-[#fbbcbce6] text-[#E50914] p-1 rounded'>
                                                             <BsEye />
-                                                        </p>
+                                                        </i>
                                                         {item.publishedAt.slice(0, 3)}
                                                     </p>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </SwiperSlide>
-                                ))}
-                            </Swiper>
-                        </div>
-                        <div>
-                            {data3.slice(4, 8).map((item) => (
-                                <div className='w-full flex mt-[20px] h-[130px]'>
-                                    <img className='min-w-[35%] max-w-[35%] rounded h-full object-cover' src={item.urlToImage ? item.urlToImage : img} alt="" />
-                                    <div className='ml-3 pb-0 flex justify-between flex-col items-start text-[18px] font-semibold'>
-                                        <h2>{item.title}</h2>
-                                        <div className='text-[12px] gap-3 flex mt-3'>
-                                            <p className='flex items-center gap-2'>
-                                                <p className='bg-[#fbbcbce6] p-1 rounded'>
-                                                    <BsCalendar4 className='text-[#E50914]' />
-                                                </p>
-                                                {item.publishedAt ? dayjs(item.publishedAt).format('DD MMM, YYYY') : 'No time'}
-                                            </p>
-                                            |
-                                            <p className='flex gap-2'>
-                                                <p className='bg-[#fbbcbce6] text-[#E50914] p-1 rounded'>
-                                                    <BsEye />
-                                                </p>
-                                                {item.publishedAt.slice(0, 3)}
-                                            </p>
                                         </div>
                                     </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                    <div className='w-1/2 pl-2'>
-                        <div className='border-b-2 items-center mt-[60px] justify-between text-[20px] flex border-red-500'>
-                            <p className='bg-[#E50914] text-white p-3 rounded-t-[10px]'>Texnologiya</p>
-                            <div className='flex gap-3'>
-                                <button onClick={handlePrev} className='w-[30px] flex justify-center swiper-button-prev active:bg-[#E50914] duration-75 items-center h-[30px] text-white bg-black rounded-full'>
-                                    <AiOutlineArrowLeft />
-                                </button>
-                                <button onClick={handleNext} className='w-[30px] flex justify-center swiper-button-next active:bg-[#E50914] duration-75 items-center h-[30px] text-white bg-black rounded-full'>
-                                    <AiOutlineArrowRight />
-                                </button>
-                            </div>
+                                ))}
+                            </Slider>
                         </div>
                         <div>
-                            <Swiper
-                                className='flex  flex-wrap'
-                                navigation={false}
-                                ref={swiperRef}
-                                pagination={{ clickable: true }}
-                                scrollbar={{ draggable: true }}
-                                spaceBetween={0}
-                                slidesPerView={1}
-                                loop={true}
-                                autoplay={
-                                    {
-                                        delay: 1100
+                            <Slider className='beFlex' {...settings2} >
 
-                                    }
-                                }
-                            >
-                                {data2.map((item) => (
-                                    <SwiperSlide className='w-full overflow-hidden my-5' key={item.id}>
-                                        <div className='w-[100%] relative rounded text-[18px]'>
-                                            <div className='absolute items-center px-4 top-[20px] rounded-b flex justify-between w-full text-[14px]'>
-                                                <p className=' p-1 text-white bg-[#E50914] left-2'>{item.source.name}</p>
-                                                <p className='p-2 rounded text-lg text-white bg-[#E50914] flex justify-center items-center'><BsFillLightningFill /></p>
-                                            </div>
-                                            <img className='h-[400px] w-full rounded' src={item.urlToImage ? item.urlToImage : img} alt='' />
-                                            <div className='absolute bottom-0 bg-black bg-opacity-40 w-full h-[30%] p-[15px] text-white '>
-                                                <p className='hover:text-[#E50914] text-xl'>
-                                                    {item.title.length > 60 ? `${item.title.slice(0, 100)}...` : item.title}
-                                                </p>
-                                                <div className='text-[14px] gap-3 flex mt-3'>
-                                                    <p className='flex items-center gap-2'>
-                                                        <p className='bg-[#fbbcbce6] p-1 rounded'>
-                                                            <BsCalendar4 className='text-[#E50914]' />
-                                                        </p>
-                                                        {item.publishedAt ? dayjs(item.publishedAt).format('DD MMM, YYYY') : 'No time'}
-                                                    </p>
-                                                    |
-                                                    <p className='flex gap-2'>
-                                                        <p className='bg-[#fbbcbce6] text-[#E50914] p-1 rounded'>
-                                                            <BsEye />
-                                                        </p>
-                                                        {item.publishedAt.slice(0, 3)}
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </SwiperSlide>
-                                ))}
-                            </Swiper>
-                        </div>
-                        <div className='h-[500px] flex-wrap second bg-opacity-25'>
-                            {/* <Swiper
-                                className='h-full'
-                                pagination={{ clickable: true }}
-                                navigation={true}
-                                slidesPerView={4}
-                                spaceBetween={0}
-                                loop={true}
-                                // grid={{
-                                //     columns: 1,
-                                //     rows: 4,
+                                {sport.map((item, idx) => (
+                                    <div className=" mt-[20px] flex h-[130px]">
 
-                                // }}
-                                autoplay={{ delay: 1100 }}
-                            > */}
-                            <div className=''>
-                                {data2?.slice(4, 8).map((item) => (
-                                    <Link to={`/products/${item.publishedAt}`}>
-
-                                        <div className="relative mt-[20px] flex  h-[130px]">
                                             <img
-                                                className="min-w-[35%] overflow-hidden max-w-[25%] rounded h-full object-cover"
+                                                className="min-w-[35%] overflow-hidden max-w-[35%] rounded h-full object-cover"
                                                 src={item.urlToImage ? item.urlToImage : img}
                                                 alt=""
                                             />
-                                            <div className="ml-3 rounded pb-0 flex justify-between flex-col items-start text-[18px] font-semibold">
-                                                <h2>{item.title}</h2>
-                                                <div className="text-[12px] gap-3 flex mt-3">
-                                                    <p className="flex items-center gap-2">
-                                                        <span className="bg-[#fbbcbce6] p-1 rounded">
-                                                            <BsCalendar4 className="text-[#E50914]" />
-                                                        </span>
-                                                        {item.publishedAt
-                                                            ? dayjs(item.publishedAt).format('DD MMM, YYYY')
-                                                            : 'No time'}
+                                        <div className="ml-3 static rounded pb-0 flex justify-between flex-col items-start text-[18px] font-semibold">
+                                            <Link key={idx} className='hover:text-[#E50914]' to={`/products/${item.publishedAt}`}>
+
+                                                <h2 className='text-[13px]'>{item.title}</h2>
+                                            </Link>
+
+                                            <div className="text-[12px] gap-3 flex mt-3">
+                                                <p className="flex items-center gap-2">
+                                                    <span className="bg-[#fbbcbce6] p-1 rounded">
+                                                        <BsCalendar4 className="text-[#E50914]" />
+                                                    </span>
+                                                    {item.publishedAt
+                                                        ? dayjs(item.publishedAt).format('DD MMM, YYYY')
+                                                        : 'No time'}
+                                                </p>
+                                                |
+                                                <p className="flex gap-2">
+                                                    <span className="bg-[#fbbcbce6] text-[#E50914] p-1 rounded">
+                                                        <BsEye />
+                                                    </span>
+                                                    {item.publishedAt.slice(0, 3)}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                ))}
+
+                            </Slider>
+                        </div>
+                    </div>
+                    <div className='w-[49.5%] hidden md:block pr-2 relative'>
+                        <div className='border-b-2 items-center mt-[60px] justify-between text-[20px] flex border-red-500'>
+                            <p className='bg-[#E50914] text-white p-3 rounded-t-[10px]'>
+                                <Link to='/texnologiya'>
+                                Texnologiya
+                                </Link>
+                                </p>
+                            <div className='flex gap-3'>
+                                
+                            </div>
+                        </div>
+                        <div>
+                            <Slider {...settings}>
+                                {technology.map((item, idx) => (
+                                    <div key={idx} className='w-full overflow-hidden my-5'>
+                                        <div className='w-[100%] relative rounded text-[18px]'>
+                                            <div className='absolute items-center px-4 top-[20px] rounded-b flex justify-between w-full text-[14px]'>
+                                                <p className=' p-1 text-white bg-[#E50914] left-2'>{item.source.name}</p>
+                                                <p className='p-2 rounded text-lg text-white bg-[#E50914] flex justify-center items-center'><BsFillLightningFill /></p>
+                                            </div>
+                                            <img className='h-[400px] object-cover overflow-hidden w-full rounded' src={item.urlToImage ? item.urlToImage : img} alt='' />
+                                            <div className='absolute bottom-0 bg-black bg-opacity-40 w-full h-[30%] p-[15px] text-white '>
+                                                <p className='hover:text-[#E50914] text-xl'>
+                                                    <Link to={`/products/${item.publishedAt}`}>
+                                                        {item.title.length > 60 ? `${item.title.slice(0, 100)}...` : item.title}
+                                                    </Link>
+
+                                                </p>
+                                                <div className='text-[14px] gap-3 flex mt-3'>
+                                                    <p className='flex items-center gap-2'>
+                                                        <i className='bg-[#fbbcbce6] p-1 rounded'>
+                                                            <BsCalendar4 className='text-[#E50914]' />
+                                                        </i>
+                                                        {item.publishedAt ? dayjs(item.publishedAt).format('DD MMM, YYYY') : 'No time'}
                                                     </p>
                                                     |
-                                                    <p className="flex gap-2">
-                                                        <span className="bg-[#fbbcbce6] text-[#E50914] p-1 rounded">
+                                                    <p className='flex gap-2'>
+                                                        <i className='bg-[#fbbcbce6] text-[#E50914] p-1 rounded'>
                                                             <BsEye />
-                                                        </span>
+                                                        </i>
                                                         {item.publishedAt.slice(0, 3)}
                                                     </p>
                                                 </div>
                                             </div>
                                         </div>
-                                    </Link>
+                                    </div>
+                                ))}
+                            </Slider>
+                        </div>
+                        <div>
+                            <Slider className='beFlex' {...settings2} >
 
+                                {technology.map((item, idx) => (
+                                    <div className=" mt-[20px] flex h-[130px]">
+
+                                            <img
+                                                className="min-w-[35%] overflow-hidden max-w-[35%] rounded h-full object-cover"
+                                                src={item.urlToImage ? item.urlToImage : img}
+                                                alt=""
+                                            />
+                                        <div className="ml-3 static rounded pb-0 flex justify-between flex-col items-start text-[18px] font-semibold">
+                                            <Link key={idx} className='hover:text-[#E50914]' to={`/products/${item.publishedAt}`}>
+
+                                                <h2 className=''>{item.title}</h2>
+                                            </Link>
+
+                                            <div className="text-[12px] gap-3 flex mt-3">
+                                                <p className="flex items-center gap-2">
+                                                    <span className="bg-[#fbbcbce6] p-1 rounded">
+                                                        <BsCalendar4 className="text-[#E50914]" />
+                                                    </span>
+                                                    {item.publishedAt
+                                                        ? dayjs(item.publishedAt).format('DD MMM, YYYY')
+                                                        : 'No time'}
+                                                </p>
+                                                |
+                                                <p className="flex gap-2">
+                                                    <span className="bg-[#fbbcbce6] text-[#E50914] p-1 rounded">
+                                                        <BsEye />
+                                                    </span>
+                                                    {item.publishedAt.slice(0, 3)}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
 
                                 ))}
-                            </div>
-                            {/* </Swiper>/ */}
+
+                            </Slider>
                         </div>
                     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   
                 </div>
 
             ) : (

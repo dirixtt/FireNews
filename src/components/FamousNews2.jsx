@@ -1,12 +1,12 @@
 import React from 'react';
 import dayjs from 'dayjs';
-import { BsCalendar4 } from 'react-icons/bs';
+import { BsCalendar4, BsEye } from 'react-icons/bs';
 import img from './noimg.jpg'
-import {AiFillEye} from 'react-icons/ai'
+import {AiFillHeart} from 'react-icons/ai'
 import { Link } from 'react-router-dom';
 import Loader from './Loader';
 
-export default function TrendNews({ data }) {
+export default function FamousNews2({ data }) {
   return (
 
     <div>
@@ -16,10 +16,10 @@ export default function TrendNews({ data }) {
             <div className='mb-10'>
               <div className=' text-black text-opacity-50 gap-1 my-[23px] text-[14px] flex'>
 
-                <Link  to="/">Uy</Link>/<Link className='text-[#E50914]' to="/firenews">Eng kop tomosha qilingan</Link>
+                <Link  to="/">Uy</Link>/<Link className='text-[#E50914]' to="/firenews">Eng mashhur</Link>
               </div>
               <div className='w-full border-b border-[#E50914]'>
-                <p className='text-[#E50914] flex items-center text-[24px] font-semibold  pb-[10px] gap-2'>Eng kop tomosha qilingan <AiFillEye/></p>
+                <p className='text-[#E50914]  flex items-center text-[24px] font-semibold  pb-[10px] gap-2'>Eng mashhur <AiFillHeart/></p>
               </div>
             </div>
             <div className='flex justify-between'>
@@ -39,7 +39,7 @@ export default function TrendNews({ data }) {
                     |
                     <p className="flex gap-2 ">
                       <p className='bg-[#FFFFFFE6] text-[#E50914] p-1 rounded'>
-                        <AiFillEye />
+                        <BsEye />
                       </p>
                       846
                     </p>
@@ -47,7 +47,7 @@ export default function TrendNews({ data }) {
                 </div>
                 <div className='absolute items-center px-4 top-[20px] rounded-b flex justify-between w-full text-[14px]'>
                   <p className=' p-1 text-white bg-[#E50914] left-2'>{data[2].source.name}</p>
-                  <p className='p-2 rounded text-lg text-white bg-[#E50914] flex justify-center items-center'><AiFillEye /></p>
+                  <p className='p-2 rounded text-lg text-white bg-[#E50914] flex justify-center items-center'><AiFillHeart /></p>
                 </div>
               </div>
               <div className='relative w-[49.5%] h-[250px] rounded '>
@@ -66,7 +66,7 @@ export default function TrendNews({ data }) {
                     |
                     <p className="flex gap-2 ">
                       <p className='bg-[#FFFFFFE6] text-[#E50914] p-1 rounded'>
-                        <AiFillEye />
+                        <BsEye />
                       </p>
                       846
                     </p>
@@ -74,7 +74,7 @@ export default function TrendNews({ data }) {
                 </div>
                 <div className='absolute items-center px-4 top-[20px] rounded-b flex justify-between w-full text-[14px]'>
                   <p className=' p-1 text-white bg-[#E50914] left-2'>{data[10].source.name}</p>
-                  <p className='p-2 rounded text-lg text-white bg-[#E50914] flex justify-center items-center'><AiFillEye /></p>
+                  <p className='p-2 rounded text-lg text-white bg-[#E50914] flex justify-center items-center'><AiFillHeart /></p>
                 </div>
               </div>
             </div>
@@ -101,7 +101,7 @@ export default function TrendNews({ data }) {
                     |
                     <p className="flex gap-2">
                       <p className='bg-[#fbbcbce6] text-[#E50914] p-1 rounded'>
-                        <AiFillEye />
+                        <BsEye />
                       </p>
                       {item.publishedAt.slice(0, 3)}
                     </p>

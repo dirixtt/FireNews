@@ -5,7 +5,13 @@ module.exports = {
     extend: {},
     container: {
       center: true,
-      padding: '1.5rem'
+      padding: {
+        DEFAULT: '1.5rem',
+        sm: '0rem',
+        lg: '4rem',
+        xl: '5rem',
+        '2xl': '6rem',
+      },
     },
   },
   plugins: [],
