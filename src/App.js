@@ -27,7 +27,7 @@ import About from './components/About'
 import Search from './home/Search'
 export default function App() {
 
-  const apiKey = '290ffa15d6ed4f4682b1213e2dbd5004';
+  const apiKey = '0c5ae748f67442659f3ecdb1a7704f2a';
   const [data, setData] = useState([]);
   const [selectedLan, setSelectedLan] = useState("en")
   const [country, setCountry] = useState('')

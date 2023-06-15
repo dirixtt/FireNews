@@ -22,24 +22,24 @@ export default function Bussnuis({ business }) {
                             </div>
                         </div>
                         <div className='flex justify-between'>
-                            <div className='relative w-[49.5%] h-[400px] rounded '>
-                                <img className='object-cover w-full rounded h-full' src={business[2].urlToImage} alt="" />
-                                <div className='absolute text-[18px] p-[8px] bg-black bg-opacity-30 w-full text-white h-[35%] bottom-0 '>
+                            <div className='relative w-full xl:w-[49.5%] h-auto xl:h-[400px] rounded '>
+                                <img className='object-cover w-full rounded h-[250px]' src={business[2].urlToImage} alt="" />
+                                <div className='absolute text-[14px] md:text-[18px] p-[8px] bg-black bg-opacity-30 w-full text-white h-[35%] bottom-0 '>
                                     <Link className='hover:text-red-500' to={`/products/${business[2].publishedAt}`}>
                                         {business[2].title}
                                     </Link >
                                     <div className='text-[14px] gap-3 flex mt-3'>
                                         <p className='flex items-center gap-2'>
-                                            <p className='bg-[#FFFFFFE6] p-1 rounded'>
+                                            <i className='bg-[#FFFFFFE6] p-1 rounded'>
                                                 <BsCalendar4 className=' text-[#E50914]' />
-                                            </p>
+                                            </i>
                                             {dayjs(business[2].publishedAt).format("DD MMM, YYYY")}
                                         </p>
                                         |
                                         <p className="flex gap-2 ">
-                                            <p className='bg-[#FFFFFFE6] text-[#E50914] p-1 rounded'>
+                                            <i className='bg-[#FFFFFFE6] text-[#E50914] p-1 rounded'>
                                                 <BsEye />
-                                            </p>
+                                            </i>
                                             846
                                         </p>
                                     </div>
@@ -49,7 +49,7 @@ export default function Bussnuis({ business }) {
                                     <p className='p-2 rounded text-lg text-white bg-[#E50914] flex justify-center items-center'><BsFillLightningFill /></p>
                                 </div>
                             </div>
-                            <div className='relative w-[49.5%] h-[400px] rounded '>
+                            <div className='relative hidden xl:flex w-[49.5%] h-[400px] rounded '>
                                 <img className='object-cover w-full rounded h-full' src={business[10].urlToImage} alt="" />
                                 <div className='absolute text-[18px] p-[8px] bg-black bg-opacity-30 w-full text-white h-[30%] bottom-0 '>
                                     <Link className='hover:text-red-500' to={`/products/${business[10].publishedAt}`}>
@@ -77,33 +77,33 @@ export default function Bussnuis({ business }) {
                                 </div>
                             </div>
                         </div>
-                        <div className='relative  mt-10 gap-2 flex w-full justify-between flex-wrap'>
+                        <div className='relative gap-3 mt-10  flex w-full justify-between flex-wrap'>
                             {business?.map((item, idx) => (
-                                    <div key={idx} className='w-[49%] flex mt-[20px] h-[130px]'>
-                                        <img className='min-w-[35%] max-w-[35%] rounded h-full object-cover' src={item.urlToImage ? item.urlToImage : img} alt="" />
-                                        <div className='ml-3 pb-0 flex justify-between flex-col items-start text-[18px] font-semibold'>
-                                            <Link className='hover:text-red-500' to={`/products/${item.publishedAt}`}>
+                                <div key={idx} className='w-full xl:w-[49%] flex mt-[20px] h-[130px]'>
+                                    <img className='min-w-[35%] max-w-[35%] rounded h-full object-cover' src={item.urlToImage ? item.urlToImage : img} alt="" />
+                                    <div className='ml-3 pb-0 flex justify-between flex-col items-start text-[18px] font-semibold'>
+                                        <Link className='hover:text-red-500 xl:text-xl text-sm' to={`/products/${item.publishedAt}`}>
                                             <h2>{item.title}</h2>
-                                            </Link>
-                                            <div className='text-[12px] gap-3 flex mt-3'>
-                                                <p className='flex items-center gap-2'>
-                                                    <p className='bg-[#fbbcbce6] p-1 rounded'>
-                                                        <BsCalendar4 className='text-[#E50914]' />
-                                                    </p>
-                                                    {item.publishedAt ? dayjs(item.publishedAt).format('DD MMM, YYYY') : 'No time'}
+                                        </Link>
+                                        <div className='text-[12px] gap-3 flex mt-3'>
+                                            <p className='flex items-center gap-2'>
+                                                <p className='bg-[#fbbcbce6] p-1 rounded'>
+                                                    <BsCalendar4 className='text-[#E50914]' />
                                                 </p>
-                                                |
-                                                <p className='flex gap-2'>
-                                                    <p className='bg-[#fbbcbce6] text-[#E50914] p-1 rounded'>
-                                                        <BsEye />
-                                                    </p>
-                                                    {item.publishedAt.slice(0, 3)}
+                                                {item.publishedAt ? dayjs(item.publishedAt).format('DD MMM, YYYY') : 'No time'}
+                                            </p>
+                                            |
+                                            <p className='flex gap-2'>
+                                                <p className='bg-[#fbbcbce6] text-[#E50914] p-1 rounded'>
+                                                    <BsEye />
                                                 </p>
-                                            </div>
+                                                {item.publishedAt.slice(0, 3)}
+                                            </p>
                                         </div>
                                     </div>
+                                </div>
                             ))}
-                        </div>
+                        </div> 
                     </>
 
                 </div>) : (<Loader />)}

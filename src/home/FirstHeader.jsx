@@ -114,7 +114,7 @@ export default function FirstHeader() {
   const hover = `hover:text-[#E50914] text-[16px]`
   const style = 'text-black w-[126px] text-left focus:bg-[#E50914] focus:text-white text-[14px] font-[500] p-[10px] rounded hover:bg-pink-200 bg-opacity-50'
   return (
-    <header className='bg-[#1D1D1D] hidden md:block h-10 w-full'>
+    <header className='bg-[#1D1D1D] hidden xl:block h-10 w-full'>
       <div className='container justify-between flex items-center h-full text-white'>
         <div className='items-center flex h-full '>
           <div className='w-24 items-center justify-center flex'>
@@ -158,10 +158,10 @@ export default function FirstHeader() {
             {usdToUzs !== null && eurToUzs !== null && rubToUzs !== null ? (
               <div className="flex gap-3">
                 <p className='flex items-center gap-1'>
-                  {usdToUzs.toFixed(2)}{usdStatus}
+                USD {usdToUzs.toFixed(2)}{usdStatus}
                 </p>
-                <p className='flex items-center gap-1'>{eurToUzs.toFixed(2)}{eurStatus} </p>
-                <p className='flex items-center gap-1'>{rubToUzs.toFixed(2)}{rubStatus} </p>
+                <p className='flex items-center gap-1'>EUR {eurToUzs.toFixed(2)}{eurStatus} </p>
+                <p className='flex items-center gap-1'>RUB {rubToUzs.toFixed(2)}{rubStatus} </p>
               </div>
             ) : (
               <p>Загрузка...</p>
@@ -188,10 +188,22 @@ export default function FirstHeader() {
             }>
               Reklama
             </NavLink></p>
-          <FaTelegramPlane className={hover} />
-          <RxTwitterLogo className={hover} />
-          <FaInstagram className={hover} />
-          <TbBrandFacebook className={hover} />
+          <a href="https://telegram.org">
+
+            <FaTelegramPlane className={hover} />
+          </a>
+          <a href="https://twitter.com">
+
+            <RxTwitterLogo className={hover} />
+          </a>
+          <a href="https://instagram.com">
+
+            <FaInstagram className={hover} />
+          </a>
+          <a href="https://facebook.com">
+
+            <TbBrandFacebook className={hover} />
+          </a>
         </div>
       </div>
     </header >

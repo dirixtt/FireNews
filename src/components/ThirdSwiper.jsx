@@ -64,8 +64,8 @@ export default function ThirdSwiper({
     return (
         <div className='hidden md:block'>
             {business.length && entertainment.length ? (
-                <div className='flex justify-between'>
-                    <div className='w-[49.5%] pl-2'>
+                <div className=' flex-col xl:flex-row justify-between'>
+                    <div className='w-full xl:w-[49.5%] pl-2'>
                         <div className='border-b-2 items-center mt-[60px] justify-between text-[20px] flex border-red-500'>
                             <p className='bg-[#E50914] text-white p-3 rounded-t-[10px]'>
                                 <Link to='/iqtisodiyot'>
@@ -121,7 +121,7 @@ export default function ThirdSwiper({
                             </Slider>
                         </div>
                     </div>
-                    <div className='w-[49.5%] pl-2'>
+                    <div className='w-full xl:w-[49.5%] pl-2'>
                         <div className='border-b-2 items-center mt-[60px] justify-between text-[20px] flex border-red-500'>
                             
                             <p className='bg-[#E50914] text-white p-3 rounded-t-[10px]'>

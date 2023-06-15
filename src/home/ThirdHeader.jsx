@@ -9,7 +9,7 @@ export default function ThirdHeader() {
     return (
 
         <div className='w-full container flex justify-center items-center'>
-            <ul className='flex w-[85%] md:w-1/2 text-black justify-center items-center flex-col md:flex-row md:h-[80px] h-[150px] font-semibold text-opacity-50 border-white mt-5 '>
+            <ul className='flex w-[85%] md:w-full xl:1/2 text-black justify-center items-center flex-col md:flex-row md:h-[80px] h-[150px] font-semibold text-opacity-50 border-white mt-5 '>
                 <div className=' flex w-full items-center justify-center md:h-full h-[60px]'>
 
                     <NavLink to="/firenews" className={(navClass) =>

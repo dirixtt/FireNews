@@ -109,7 +109,7 @@ export default function Burger({ isOpenBurger, openBurger, handleSearch, searchT
   const style = 'text-black w-[126px] text-left focus:bg-[#E50914] focus:text-white text-[14px] font-[500] p-[10px] rounded hover:bg-pink-200 bg-opacity-50'
 
   return (
-    <div className={`${openBurger ? "left-0" : "-left-[100%]"} duration-200 overflow-y-hidden h-screen bg-white absolute top-0 text-black z-[99] w-screen  container py-[40px]`}>
+    <div className={`${openBurger ? "left-0" : "-left-[200%]"} duration-200 overflow-y-hidden h-screen bg-white absolute top-0 text-black z-[99] w-[500px] container py-[40px]`}>
       <div>
         <button className='text-4xl text-black text-opacity-60' onClick={() => isOpenBurger(false)}>
 
@@ -188,10 +188,11 @@ export default function Burger({ isOpenBurger, openBurger, handleSearch, searchT
       </div>
       <div className='mt-10'>
         <div>
-
+<Link to='/worldnews'>
           <button onClick={() => isOpen2(!open2)} className={`w-full rounded justify-between font-semibold flex items-center px-5 bg-[#EFF4FB] h-[54px] ${open2 ? "text-red-500" : 'text-black'}`}>
             Dunyo yangiliklari <BsChevronDown className={open2 ? "duration-100" : "-rotate-90 duration-100"} />
           </button>
+</Link>
           <div className={`${open2 ? "h-[150px] flex flex-col justify-between pb-5" : "h-0 z-[-90] hidden"} bg-[#EFF4FB] duration-100 w-full`}>
             <p className='px-5 hover:text-red-600 font-semibold'>Hammasi</p>
             <p className='px-5 hover:text-red-600 font-semibold'>Lotin Amerikasi </p>
@@ -231,10 +232,10 @@ export default function Burger({ isOpenBurger, openBurger, handleSearch, searchT
         <Link to='/contacts'>
         <p>Aloqa</p>
         </Link>
-        <Link to='adv'>
+        <Link to='/adv'>
         <p>Reklama</p>
         </Link>
-        <Link to='team'>
+        <Link to='/firenewsteam'>
         <p>FireNews jamosi</p>
         </Link>
       </div>

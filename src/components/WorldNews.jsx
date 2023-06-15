@@ -74,8 +74,8 @@ export default function WorldNews({ data }) {
                             <button onClick={handleNext} className='w-[30px] flex justify-center active:bg-[#E50914] duration-75 items-center h-[30px] text-white bg-black rounded-full'><AiOutlineArrowRight /></button>
                         </div>
                     </div>
-                    <div className='my-10  flex'>
-                        <Slider ref={sliderRef} className='pr-2 w-full md:w-1/2' {...settings}>
+                    <div className='my-10  flex-col xl:flex'>
+                        <Slider ref={sliderRef} className='pr-2 w-full xl:w-1/2' {...settings}>
                             {data.map((item, idx) => (
                                 <div key={idx}>
                                     <div className='relative w-full rounded md:h-[400px] h-[300px]'>
@@ -132,7 +132,7 @@ export default function WorldNews({ data }) {
                                 </div>
                             ))}
                         </Slider>
-                        <div className='w-1/2 hidden md:block pl-2 h-full'>
+                        <div className='w-full xl:w-1/2 hidden md:block pl-2 h-full'>
 
                             <div className='h-auto  flex flex-col justify-between'>
                                 <Slider className='pr-2  beFlex ' {...settings2}>

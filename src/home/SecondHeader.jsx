@@ -39,19 +39,18 @@ function SecondHeader({ setSelectedLan, selectedLan, handleSearch, searchTerm, s
   return (
     <div className='h-[103px] bg-[#E50914]'>
       <div className='container relative flex justify-between  items-center h-full'>
-        <div className='flex text-white text-xl items-center justify-center md:hidden'>
+        <div className='flex text-white text-xl items-center justify-center xl:hidden'>
           <button onClick={() => isOpenBurger(!openBurger)}>
             <FiMenu searchTerm={searchTerm} handleSearch={handleSearch} />
           </button>
 
-          <Burger country={country} setCountry={setCountry} isOpenBurger={isOpenBurger} openBurger={openBurger} />
         </div>
         <div className='flex  items-center h-full'>
 
           <Link className='flex justify-center items-center ' to='/'>
             <img src={img} alt="img" />
           </Link>
-          <div className='ml-[40px] h-full hidden md:flex items-center text-[18px]'>
+          <div className='ml-[40px] h-full hidden xl:flex items-center text-[18px]'>
 
             <ul className='text-white flex items-center h-full gap-3'>
               <div className='flex text-lg  h-full gap-2 items-center'>
@@ -109,7 +108,7 @@ function SecondHeader({ setSelectedLan, selectedLan, handleSearch, searchTerm, s
           </div>
         </div>
         <div className='flex gap-4 text-white  items-center'>
-          <div className={`${openSearch ? "min-w-[280px] rounded-md bg-white" :"w-auto"} items-center justify-end hidden md:flex  duration-500 h-[40px]`}>
+          <div className={`${openSearch ? "min-w-[280px] rounded-xl bg-white" :"w-auto"} items-center justify-end hidden xl:flex  duration-500 h-[40px]`}>
             <Link to='/search' className="  xl:w-full h-full justify-between flex items-center ">
               <button onClick={() => isOpenSearch(true)} className={`${openSearch ? "w-[15%] text-opacity-50 text-black" : "w-full" } h-full text-xl  flex items-center justify-center `}>
 
@@ -146,6 +145,8 @@ function SecondHeader({ setSelectedLan, selectedLan, handleSearch, searchTerm, s
           </div>
         </div>
       </div>
+      <Burger country={country} setCountry={setCountry} isOpenBurger={isOpenBurger} openBurger={openBurger} />
+
     </div>
   );
 }

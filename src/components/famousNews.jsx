@@ -25,8 +25,8 @@ export default function FamousNews({
       {data.length > 0 ? (
         <>
           <ThirdHeader />
-          <div className='flex container my-10'>
-            <div className='md:w-1/2 w-full rounded h-[380px] overflow-hidden p-2 md:h-[450px] '>
+          <div className='flex-col xl:flex-row xl:flex container my-10'>
+            <div className='xl:w-1/2 w-full rounded h-[380px] overflow-hidden p-2 md:h-[450px] '>
               {data.length > 0 ? (
                 <Link to={`/products/${data[3].publishedAt}`}>
                   <div className='relative rounded h-full'>
@@ -63,11 +63,11 @@ export default function FamousNews({
                 <div className='h-full w-full flex justify-center items-center'>Loading...</div>
               )}
             </div>
-            <div className='w-1/2 hidden md:block rounded overflow-hidden p-2 md:h-[450px] '>
+            <div className='xl:w-1/2 hidden md:block rounded overflow-hidden p-2 xl:h-[450px] '>
               {data.length > 0 ? (
                 <>
-                  <div className='relative h-1/2 rounded '>
-                    <Link to={`/products/${data[2].publishedAt}`}>
+                  <div className='relative hidden xl:flex h-1/2 rounded '>
+                    <Link className='w-full' to={`/products/${data[2].publishedAt}`}>
                       <img className='object-cover w-full rounded h-full' src={data[2].urlToImage} alt="" />
                       <div className='absolute text-[18px] p-[8px] bg-black bg-opacity-30 w-full text-white h-[35%] bottom-0 '>
                         <p className='hover:text-[#E50914]'>

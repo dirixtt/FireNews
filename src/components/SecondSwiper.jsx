@@ -94,7 +94,7 @@ export default function SecondSwiper({ sport, technology }) {
         <div className=''>
             {technology && sport?.length > 0 ? (
                 <div className='flex justify-between'>
-                    <div className='md:w-[49.5%] w-full pr-2 relative'>
+                    <div className='xl:w-[49.5%] w-full pr-2 relative'>
                         <div className='border-b-2 items-center mt-[60px] justify-between text-[20px] flex border-red-500'>
                             <p className='bg-[#E50914] text-white p-3 rounded-t-[10px]'>
                               <Link to="/sport">
@@ -114,9 +114,9 @@ export default function SecondSwiper({ sport, technology }) {
                                                 <p className=' p-1 text-white bg-[#E50914] left-2'>{item.source.name}</p>
                                                 <p className='p-2 rounded text-lg text-white bg-[#E50914] flex justify-center items-center'><BsFillLightningFill /></p>
                                             </div>
-                                            <img className='md:h-[400px] h-[300px] object-cover overflow-hidden w-full rounded' src={item.urlToImage ? item.urlToImage : img} alt='' />
+                                            <img className='xl:h-[400px] h-[300px] object-cover overflow-hidden w-full rounded' src={item.urlToImage ? item.urlToImage : img} alt='' />
                                             <div className='absolute bottom-0 bg-black bg-opacity-40 w-full h-[30%] p-[15px] text-white '>
-                                                <p className='hover:text-[#E50914] text-[13px] md:text-xl'>
+                                                <p className='hover:text-[#E50914] text-[13px] xl:text-xl'>
                                                     <Link to={`/products/${item.publishedAt}`}>
                                                         {item.title.length > 60 ? `${item.title.slice(0, 88)}...` : item.title}
                                                     </Link>
@@ -185,7 +185,7 @@ export default function SecondSwiper({ sport, technology }) {
                             </Slider>
                         </div>
                     </div>
-                    <div className='w-[49.5%] hidden md:block pr-2 relative'>
+                    <div className='w-[49.5%] hidden xl:block pr-2 relative'>
                         <div className='border-b-2 items-center mt-[60px] justify-between text-[20px] flex border-red-500'>
                             <p className='bg-[#E50914] text-white p-3 rounded-t-[10px]'>
                                 <Link to='/texnologiya'>

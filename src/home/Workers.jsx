@@ -5,7 +5,7 @@ export default function Workers() {
     <div>
         <div className='my-10 container'>
             <h1 className='text-[32px] font-semibold'>FireNews jamosi</h1>
-            <div className='w-full mt-5 justify-between flex  flex-wrap'>
+            <div className='w-full mt-5 justify-center md:justify-between flex  flex-wrap'>
                 {Data?.map((item) => (
                    <div className='drop-shadow-lg  w-[295px] my-8 flex flex-col items-center justify-center' key={item.id}>
                         <img className='h-[305px] object-cover rounded border border-[#E50914] w-full' src={item.img} alt={item.name} />

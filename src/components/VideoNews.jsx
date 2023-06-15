@@ -34,6 +34,14 @@ const VideoNews = ({ data }) => {
           slidesToScroll: 1,
         },
       },
+      {
+        breakpoint: 1000,
+        settings: {
+          slidesToShow: 2,
+          rows: 1 ,
+          slidesToScroll: 1,
+        },
+      },
     ],
   };
   return (
@@ -51,7 +59,7 @@ const VideoNews = ({ data }) => {
       >
         {data.map((item, idx) => (
           <div  key={idx}>
-            <div className='md:w-[300px] w-full p-4 text-[18px]'>
+            <div className='xl:w-[300px] w-full p-4 text-[18px]'>
               <img className='h-[200px] object-cover w-full rounded' src={item.urlToImage ? item.urlToImage : img} alt="" />
               <div className='absolute items-center px-4 top-[20px] flex justify-between w-full text-[14px]'>
                 <p className='p-1 mt-1 text-white bg-[#E50914] left-2'>{item.source.name}</p>
