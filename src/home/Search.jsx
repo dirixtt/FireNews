@@ -11,12 +11,12 @@ export default function Search({ filteredProducts }) {
                 filteredProducts.length > 0 ? (<div className='relative my-10 gap-3 container flex flex-wrap'>
                     {filteredProducts.map((item, idx) => (
                         <div className='relative mb-10' key={idx}>
-                            <Link className='hover:text-red-500' to={`/products/${item.publishedAt}`}>
+                            <Link className='hover:text-[#E50914]' to={`/products/${item.id}`}>
 
                                 <div className='md:w-[270px] w-full  text-[18px]'>
                                     <img className='h-[200px] object-cover w-full rounded' src={item.urlToImage ? item.urlToImage : img} alt="" />
                                     <div className='absolute items-center px-4 top-[20px] flex justify-between w-full text-[14px]'>
-                                        <p className='p-1 mt-1 text-white bg-[#E50914] left-2'>{item.source.name}</p>
+                                        <p className='p-1 mt-1 text-white bg-[#E50914] left-2'>{item.category}</p>
 
                                     </div>
                                     <p className='hover:text-[#E50914]'>

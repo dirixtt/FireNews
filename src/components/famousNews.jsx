@@ -8,16 +8,16 @@ import WorldNews from './WorldNews';
 import Loader from './Loader';
 import ThirdSwiper from './ThirdSwiper';
 import ThirdHeader from '../home/ThirdHeader';
-
+import data from '../Data'
 
 export default function FamousNews({
-  data,
+  
   technology,
   entertainment,
   business,
   sport
 }) {
-  const dateTimeString = data.length > 0 ? data[0].publishedAt : null;
+  const dateTimeString = data.length > 0 ? data[0].id : null;
   const formattedDate = dateTimeString ? dayjs(dateTimeString).format("DD MMM, YYYY") : null;
 
   return (
@@ -28,7 +28,7 @@ export default function FamousNews({
           <div className='flex-col xl:flex-row xl:flex container my-10'>
             <div className='xl:w-1/2 w-full rounded h-[380px] overflow-hidden p-2 md:h-[450px] '>
               {data.length > 0 ? (
-                <Link to={`/products/${data[3].publishedAt}`}>
+                <Link to={`/products/${data[3].id}`}>
                   <div className='relative rounded h-full'>
                     <img className='object-cover w-full rounded h-full' src={data[3].urlToImage} alt="" />
                     <div className='absolute text-[20px] md:text-[30px] p-[18px] bg-black bg-opacity-30 w-full text-white h-[35%] bottom-0 '>
@@ -53,7 +53,7 @@ export default function FamousNews({
                       </div>
                     </div>
                     <div className='absolute items-center px-4 top-[20px] flex justify-between w-full text-[14px]'>
-                      <p className=' p-1 text-white bg-[#E50914] left-2'>{data[3].source.name}</p>
+                      <p className=' p-1 text-white bg-[#E50914] left-2'>{data[3].category}</p>
                       <p className='p-2 rounded text-lg text-white bg-[#E50914] flex justify-center items-center'><BsFillLightningFill /></p>
                     </div>
                   </div>
@@ -67,7 +67,7 @@ export default function FamousNews({
               {data.length > 0 ? (
                 <>
                   <div className='relative hidden xl:flex h-1/2 rounded '>
-                    <Link className='w-full' to={`/products/${data[2].publishedAt}`}>
+                    <Link className='w-full' to={`/products/${data[2].id}`}>
                       <img className='object-cover w-full rounded h-full' src={data[2].urlToImage} alt="" />
                       <div className='absolute text-[18px] p-[8px] bg-black bg-opacity-30 w-full text-white h-[35%] bottom-0 '>
                         <p className='hover:text-[#E50914]'>
@@ -91,19 +91,19 @@ export default function FamousNews({
                         </div>
                       </div>
                       <div className='absolute items-center px-4 top-[20px] rounded-b flex justify-between w-full text-[14px]'>
-                        <p className=' p-1 text-white bg-[#E50914] left-2'>{data[2].source.name}</p>
+                        <p className=' p-1 text-white bg-[#E50914] left-2'>{data[2].category}</p>
                         <p className='p-2 rounded text-lg text-white bg-[#E50914] flex justify-center items-center'><BsFillLightningFill /></p>
                       </div>
                     </Link >
 
                   </div>
-                  <div className='flex'>
+                  <div className='flex justify-between'>
 
-                    <div className='relative w-1/2 h-[217px] pr-2 pt-4 rounded '>
-                      <Link className='hover:text-red-500' to={`/products/${data[5].publishedAt}`}>
+                    <div className='relative w-[49.5%] h-[217px] pt-4 rounded '>
+                      <Link className='hover:text-[#E50914] overflow-hidden bg-black' to={`/products/${data[5].id}`}>
                         <img className='object-cover w-full rounded h-full' src={data[5].urlToImage} alt="" />
-                        <div className='absolute text-[14px] p-[8px] bg-black bg-opacity-30 w-full text-white h-[35%] bottom-0 '>
-                          {data[5].title.length > 45 ? `${data[5].title.slice(0, 35)}...` : data[5].title}
+                        <div className='absolute text-[15px] p-[8px] bg-black bg-opacity-30 max-w-full w-full text-white h-[35%] bottom-0 '>
+                          {data[5].title.length > 45 ? `${data[5].title.slice(0, 30)}...` : data[5].title}
                           <div className='text-[10px] gap-3 flex mt-3'>
                             <p className='flex items-center gap-2'>
                               <i className='bg-[#FFFFFFE6] p-1 rounded'>
@@ -121,16 +121,16 @@ export default function FamousNews({
                           </div>
                         </div>
                         <div className='absolute items-center px-4 top-[20px] flex justify-between w-full text-[14px]'>
-                          <p className=' p-1 text-white bg-[#E50914] left-2'>{data[10].source.name}</p>
+                          <p className=' p-1 text-white bg-[#E50914] left-2'>{data[10].category}</p>
                           <p className='p-2 rounded text-lg text-white bg-[#E50914] flex justify-center items-center'><BsFillLightningFill /></p>
                         </div>
                       </Link >
                     </div>
-                    <div className='relative pl-2 w-1/2 h-[217px] pt-4 rounded '>
-                      <Link className='hover:text-red-500' to={`/products/${data[0].publishedAt}`}>
+                    <div className='relative  w-[49.5%] h-[217px] pt-4 rounded '>
+                      <Link className='hover:text-[#E50914]' to={`/products/${data[0].id}`}>
                         <img className='object-cover w-full rounded h-full' src={data[10].urlToImage} alt="" />
-                        <div className='absolute text-[14px] p-[8px] bg-black bg-opacity-30 w-full text-white h-[35%] bottom-0 '>
-                          {data[10].title.length > 45 ? `${data[10].title.slice(0, 35)}...` : data[10].title}
+                        <div className='absolute text-[15px] p-[8px] bg-black bg-opacity-30 w-full text-white h-[35%] bottom-0 '>
+                          {data[10].title.length > 45 ? `${data[10].title.slice(0, 30)}...` : data[10].title}
                           <div className='text-[10px] gap-3 flex mt-3'>
                             <p className='flex items-center gap-2'>
                               <i className='bg-[#FFFFFFE6] p-1 rounded'>
@@ -148,7 +148,7 @@ export default function FamousNews({
                           </div>
                         </div>
                         <div className='absolute items-center px-4 top-[20px] flex justify-between w-full text-[14px]'>
-                          <p className=' p-1 text-white bg-[#E50914] left-2'>{data[10].source.name}</p>
+                          <p className=' p-1 text-white bg-[#E50914] left-2'>{data[10].category}</p>
                           <p className='p-2 rounded text-lg text-white bg-[#E50914] flex justify-center items-center'><BsFillLightningFill /></p>
                         </div>
                       </Link >

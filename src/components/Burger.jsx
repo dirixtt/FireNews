@@ -18,10 +18,11 @@ export default function Burger({ isOpenBurger, openBurger, handleSearch, searchT
   const [weather, setWeather] = useState("")
   const [open, isOpen] = useState(false)
   const [open2, isOpen2] = useState(false)
-  const [city, setCity] = useState("Toshkent")
+  const [city, setCity] = useState("California")
   const apiKey = '7502ee4ca5604245b67124918230806';
 
   const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
+  const State = ["California", "Texas", "Florida", "New York", "Arizona"];
 
   fetch(apiUrl)
     .then(response => response.json())
@@ -55,11 +56,11 @@ export default function Burger({ isOpenBurger, openBurger, handleSearch, searchT
             setUsdStatus("<BsArrowUpRight className='text-green-500'/>")
             console.log('Курс USD к UZS повысился');
           } else if (usdToUzs < prevUsdToUzs) {
-            setUsdStatus("<BsArrowDownRight className='text-red-500 '/>")
+            setUsdStatus("<BsArrowDownRight className='text-[#E50914] '/>")
             console.log('Курс USD к UZS понизился');
           } else {
             setUsdStatus(" = ")
-            console.log('Курс USD к UZS остался неизменным');
+            // console.log('Курс USD к UZS остался неизменным');
           }
         }
 
@@ -69,13 +70,13 @@ export default function Burger({ isOpenBurger, openBurger, handleSearch, searchT
 
             console.log('Курс EUR к UZS повысился');
           } else if (eurToUzs < prevEurToUzs) {
-            setEurStatus("<BsArrowUpRight className='text-red-500'/>")
+            setEurStatus("<BsArrowUpRight className='text-[#E50914]'/>")
 
             console.log('Курс EUR к UZS понизился');
           } else {
             setEurStatus(" =")
 
-            console.log('Курс EUR к UZS остался неизменным');
+            // console.log('Курс EUR к UZS остался неизменным');
           }
         }
 
@@ -85,13 +86,13 @@ export default function Burger({ isOpenBurger, openBurger, handleSearch, searchT
 
             console.log('Курс RUB к UZS повысился');
           } else if (rubToUzs < prevRubToUzs) {
-            setRubStatus("<BsArrowUpRight className='text-red-500'/>")
+            setRubStatus("<BsArrowUpRight className='text-[#E50914]'/>")
             console.log('Курс RUB к UZS понизился');
 
           } else {
             setRubStatus(" =")
 
-            console.log('Курс RUB к UZS остался неизменным');
+            // console.log('Курс RUB к UZS остался неизменным');
           }
         }
 
@@ -109,7 +110,7 @@ export default function Burger({ isOpenBurger, openBurger, handleSearch, searchT
   const style = 'text-black w-[126px] text-left focus:bg-[#E50914] focus:text-white text-[14px] font-[500] p-[10px] rounded hover:bg-pink-200 bg-opacity-50'
 
   return (
-    <div className={`${openBurger ? "left-0" : "-left-[200%]"} duration-200 overflow-y-hidden h-screen bg-white absolute top-0 text-black z-[99] w-[500px] container py-[40px]`}>
+    <div className={`${openBurger ? "left-0" : "-left-[200%]"} duration-200 overflow-y-hidden h-screen bg-white absolute top-0 text-black z-[99] md:w-[500px] container w-full py-[40px]`}>
       <div>
         <button className='text-4xl text-black text-opacity-60' onClick={() => isOpenBurger(false)}>
 
@@ -127,7 +128,7 @@ export default function Burger({ isOpenBurger, openBurger, handleSearch, searchT
             <input
               type="text"
               className="outline-none px-1 h-full bg-transparent text-black w-full"
-              placeholder="Qidiruv"
+              placeholder="Search"
               value={searchTerm} onChange={handleSearch}
             />
 
@@ -156,87 +157,69 @@ export default function Burger({ isOpenBurger, openBurger, handleSearch, searchT
         </div>
         <div className=' text-black w-fullv font-semibold relative text-[15px] flex items-center justify-start '>
           <button className='flex items-center' onClick={() => isOpen(!open)}>
-            {city}<BsChevronDown className={`${open ? "rotate-180 text-red-500 font-bold" : ""} ml-1 duration-300`} />
+            {city}<BsChevronDown className={`${open ? "rotate-180 text-[#E50914] font-bold" : ""} ml-1 duration-300`} />
           </button>
           <ul className={`${open ? "block" : "hidden"} z-50 scroll absolute w-[146px] flex-col flex justify-start items-center border p-[5px] right-1.5 border-black border-opacity-50 overflow-y-scroll overflow-x-hidden rounded h-[185px] bg-white top-8`} style={{ maxHeight: '200px' }}>
-            <button onClick={onChange} value={"Toshkent"} className={style}>
-              Toshkent
-            </button>
-            <button onClick={onChange} value={"Jizzax"} className={style}>
-              Jizzax
-            </button>
-            <button onClick={onChange} value={"Samarqand"} className={style}>
-              Samarqand
-            </button>
-            <button onClick={onChange} value={"Bukhoro"} className={style}>
-              Bukhoro
-            </button>
-            <button onClick={onChange} value={"Navoiy"} className={style}>
-              Navoiy
-            </button>
-            <button onClick={onChange} value={"Qarshi"} className={style}>
-              Qarshi
-            </button>
-            <button onClick={onChange} value={"Nukus"} className={style}>
-              Nukus
-            </button>
-            <button onClick={onChange} value={"Andijon"} className={style}>
-              Andijon
-            </button>
+            {State.map((s, i) => (
+
+              <button key={i} onClick={onChange} value={s} className={style}>
+                {s}
+              </button>
+            ))}
           </ul>
         </div>
       </div>
       <div className='mt-10'>
         <div>
-<Link to='/worldnews'>
-          <button onClick={() => isOpen2(!open2)} className={`w-full rounded justify-between font-semibold flex items-center px-5 bg-[#EFF4FB] h-[54px] ${open2 ? "text-red-500" : 'text-black'}`}>
-            Dunyo yangiliklari <BsChevronDown className={open2 ? "duration-100" : "-rotate-90 duration-100"} />
-          </button>
-</Link>
+          <Link to='/worldnews'>
+            <button onClick={() => isOpen2(!open2)} className={`w-full rounded justify-between font-semibold flex items-center px-5 bg-[#EFF4FB] h-[54px] ${open2 ? "text-[#E50914]" : 'text-black'}`}>
+              World newsi <BsChevronDown className={open2 ? "duration-100" : "-rotate-90 duration-100"} />
+            </button>
+          </Link>
           <div className={`${open2 ? "h-[150px] flex flex-col justify-between pb-5" : "h-0 z-[-90] hidden"} bg-[#EFF4FB] duration-100 w-full`}>
-            <p className='px-5 hover:text-red-600 font-semibold'>Hammasi</p>
-            <p className='px-5 hover:text-red-600 font-semibold'>Lotin Amerikasi </p>
-            <p className='px-5 hover:text-red-600 font-semibold'>Afrika</p>
-            <p className='px-5 hover:text-red-600 font-semibold'>Yevropa</p>
+            <p className='px-5 hover:text-red-600 font-semibold'>All</p>
+            <p className='px-5 hover:text-red-600 font-semibold'>Latin America </p>
+            <p className='px-5 hover:text-red-600 font-semibold'>Africa</p>
+            <p className='px-5 hover:text-red-600 font-semibold'>Europe</p>
           </div>
         </div>
-        <Link to='/iqtisodiyot'>
-          <button className='w-full mt-3 rounded justify-between font-semibold flex items-center px-5 bg-[#EFF4FB] h-[54px] '>
-            Iqtisodiyot
+        <Link  to='/business'>
+          <button onClick={() => isOpenBurger(false)} className='w-full mt-3 rounded justify-between font-semibold flex items-center px-5 bg-[#EFF4FB] h-[54px] '>
+            Business
           </button>
         </Link>
-        <Link to='/jamiyat'>
-          <button className='w-full mt-3 rounded justify-between font-semibold flex items-center px-5 bg-[#EFF4FB] h-[54px] '>
-          Jamiyat
+        <Link to='/society'>
+          <button onClick={() => isOpenBurger(false)} className='w-full mt-3 rounded justify-between font-semibold flex items-center px-5 bg-[#EFF4FB] h-[54px] '>
+            Society
           </button>
         </Link>
         <Link to='/sport'>
-          <button className='w-full mt-3 rounded justify-between font-semibold flex items-center px-5 bg-[#EFF4FB] h-[54px] '>
-          Sport
+          <button onClick={() => isOpenBurger(false)} className='w-full mt-3 rounded justify-between font-semibold flex items-center px-5 bg-[#EFF4FB] h-[54px] '>
+            Sport
           </button>
         </Link>
-        <Link to='/texnologiya'>
-          <button className='w-full mt-3 rounded justify-between font-semibold flex items-center px-5 bg-[#EFF4FB] h-[54px] '>
-          Texnologiya
+        <Link to='/technology'>
+          <button onClick={() => isOpenBurger(false)} className='w-full mt-3 rounded justify-between font-semibold flex items-center px-5 bg-[#EFF4FB] h-[54px] '>
+            Technology
           </button>
         </Link>
         <div>
 
-          <button  className={`w-full rounded justify-between font-semibold flex items-center px-5 bg-[#EFF4FB] h-[54px] mt-3 ${open2 ? "text-red-500" : 'text-black'}`}>
-          Viloyatlar<BsChevronDown className={open2 ? "duration-100" : "-rotate-90 duration-100"} />
+          <button className={`w-full rounded justify-between font-semibold flex items-center px-5 bg-[#EFF4FB] h-[54px] mt-3 ${open2 ? "text-[#E50914]" : 'text-black'}`}>
+            States<BsChevronDown className={open2 ? "duration-100" : "-rotate-90 duration-100"} />
           </button>
-        
+
         </div>
       </div>
       <div className='flex items-center justify-between mt-5'>
         <Link to='/contacts'>
-        <p>Aloqa</p>
+          <p>Contacts</p>
         </Link>
         <Link to='/adv'>
-        <p>Reklama</p>
+          <p>Advertising</p>
         </Link>
         <Link to='/firenewsteam'>
-        <p>FireNews jamosi</p>
+          <p>FireNews team</p>
         </Link>
       </div>
     </div>

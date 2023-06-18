@@ -17,13 +17,13 @@ export default function ThirdHeader() {
                             ? "text-[#E50914]  md:w-auto w-1/2"
                             : "w-1/2 h-full md:w-full"
                     }>
-                        <li className={style}><AiFillFire /> Olovli Yangiliklar</li>
+                        <li className={style}><AiFillFire /> Fire news</li>
                     </NavLink>
                     <NavLink to="/famousnews" className={(navClass) =>
                         navClass.isActive
                         ? "text-[#E50914]  md:w-auto w-1/2"
                         : "w-1/2 h-full md:w-full"}>
-                        <li className={`${style} border-b border-r-0 md:border-r`}><AiFillHeart /> Eng mashhur</li>
+                        <li className={`${style} border-b border-r-0 md:border-r`}><AiFillHeart />Most famous</li>
                     </NavLink>
                 </div>
                 <div className=' flex w-full items-center justify-center md:h-full h-[60px] mt-5 md:m-0'>
@@ -31,14 +31,14 @@ export default function ThirdHeader() {
                     <NavLink to="/trendnews" className={(navClass) =>
                         navClass.isActive
                         ? "text-[#E50914]  md:w-auto w-1/2"
-                        : "w-1/2 h-full md:w-full"} activeclassname="text-red-500">
-                        <li className={style}><BsLightningFill /> Trend yangiliklar</li>
+                        : "w-1/2 h-full md:w-full"} activeclassname="text-[#E50914]">
+                        <li className={style}><BsLightningFill /> Trend news</li>
                     </NavLink>
                     <NavLink to="/mostviewednews" className={(navClass) =>
                         navClass.isActive
                         ? "text-[#E50914]  md:w-auto w-1/2"
                         : "w-1/2 h-full md:w-full"}>
-                        <li className={`${style} border-b border-r-0`}><AiFillEye /> Eng ko‘p ko‘rilgan</li>
+                        <li className={`${style} border-b border-r-0`}><AiFillEye /> Most viewed</li>
                     </NavLink>
                 </div>
 

@@ -42,13 +42,13 @@ const Swiperr = ({ data }) => {
           rows: 4,
           slidesToScroll: 1,
         },
-      },
+      },  
     ],
   };
   return (
     <>
       <div className='border-b-2 items-center mt-[60px] justify-between text-[20px] flex border-red-500'>
-        <p className='bg-[#E50914] text-white p-3 rounded-t-[10px]'>So‘ngi yangiliklar</p>
+        <p className='bg-[#E50914] text-white p-3 rounded-t-[10px]'>Latest news</p>
         <div className='flex gap-3'>
           <button onClick={handlePrev} className='w-[30px] flex justify-center swiper-button-prev active:bg-[#E50914] duration-75 items-center h-[30px] text-white bg-black rounded-full'><AiOutlineArrowLeft /></button>
           <button onClick={handleNext} className='w-[30px] flex justify-center swiper-button-next active:bg-[#E50914] duration-75 items-center h-[30px] text-white bg-black rounded-full'><AiOutlineArrowRight /></button>
@@ -56,17 +56,17 @@ const Swiperr = ({ data }) => {
       </div>
       <Slider ref={sliderRef} {...settings}>
         {data.map((item, idx) => (
-          <div className='relative ' key={idx}>
-            <Link className='hover:text-red-500' to={`/products/${item.publishedAt}`}>
+          <div className='relative max-h-[300px] min-h-[300px]' key={idx}>
+            <Link className='hover:text-[#E50914]' to={`/products/${item.id}`}>
 
               <div className='xl:w-[300px] w-full p-4 text-[18px]'>
-                <img className='h-[200px] object-cover w-full rounded' src={item.urlToImage ? item.urlToImage : img} alt="" />
+                <img className='max-h-[200px] min-h-[200px] object-cover w-full rounded' src={item.urlToImage ? item.urlToImage : img} alt="" />
                 <div className='absolute items-center px-4 top-[20px] flex justify-between w-full text-[14px]'>
-                  <p className='p-1 mt-1 text-white bg-[#E50914] left-2'>{item.source.name}</p>
+                  <p className='p-1 mt-1 text-white bg-[#E50914] left-2'>{item.category}</p>
 
                 </div>
                 <p className='hover:text-[#E50914]'>
-                  {item.title.length > 50 ? `${item.title.slice(0, 50)}...` : item.title}
+                  {item.title.length > 50 ? `${item.title.slice(0, 45)}...` : item.title}
                 </p>
                 <div className='text-[14px] gap-3 flex mt-3'>
                   <p className='flex items-center gap-2'>

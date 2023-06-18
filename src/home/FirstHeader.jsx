@@ -23,10 +23,11 @@ export default function FirstHeader() {
   const [prevRubToUzs, setPrevRubToUzs] = useState(null);
   const [weather, setWeather] = useState("")
   const [open, isOpen] = useState(false)
-  const [city, setCity] = useState("Toshkent")
+  const [city, setCity] = useState("New York")
   const apiKey = '7502ee4ca5604245b67124918230806';
 
   const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
+  const State = ["California", "Texas", "Florida", "New York", "Arizona"];
 
   fetch(apiUrl)
     .then(response => response.json())
@@ -60,11 +61,11 @@ export default function FirstHeader() {
             setUsdStatus("<BsArrowUpRight className='text-green-500'/>")
             console.log('Курс USD к UZS повысился');
           } else if (usdToUzs < prevUsdToUzs) {
-            setUsdStatus("<BsArrowDownRight className='text-red-500 '/>")
+            setUsdStatus("<BsArrowDownRight className='text-[#E50914] '/>")
             console.log('Курс USD к UZS понизился');
           } else {
             setUsdStatus(" = ")
-            console.log('Курс USD к UZS остался неизменным');
+            // console.log('Курс USD к UZS остался неизменным');
           }
         }
 
@@ -74,13 +75,13 @@ export default function FirstHeader() {
 
             console.log('Курс EUR к UZS повысился');
           } else if (eurToUzs < prevEurToUzs) {
-            setEurStatus("<BsArrowUpRight className='text-red-500'/>")
+            setEurStatus("<BsArrowUpRight className='text-[#E50914]'/>")
 
             console.log('Курс EUR к UZS понизился');
           } else {
             setEurStatus(" =")
 
-            console.log('Курс EUR к UZS остался неизменным');
+            // console.log('Курс EUR к UZS остался неизменным');
           }
         }
 
@@ -90,13 +91,13 @@ export default function FirstHeader() {
 
             console.log('Курс RUB к UZS повысился');
           } else if (rubToUzs < prevRubToUzs) {
-            setRubStatus("<BsArrowUpRight className='text-red-500'/>")
+            setRubStatus("<BsArrowUpRight className='text-[#E50914]'/>")
             console.log('Курс RUB к UZS понизился');
 
           } else {
             setRubStatus(" =")
 
-            console.log('Курс RUB к UZS остался неизменным');
+            // console.log('Курс RUB к UZS остался неизменным');
           }
         }
 
@@ -125,40 +126,23 @@ export default function FirstHeader() {
           </div>
           <div className='ml-2 w-24 relative text-[15px] flex items-center justify-start text-white'>
             <button className='flex items-center' onClick={() => isOpen(!open)}>
-              {city}<BsChevronDown className={`${open ? "rotate-180 text-red-500 font-bold" : ""} ml-1 duration-300`} />
+              {city}<BsChevronDown className={`${open ? "rotate-180 text-[#E50914] font-bold" : ""} ml-1 duration-300`} />
             </button>
             <ul className={`${open ? "block" : "hidden"} z-50 scroll absolute w-[146px] flex-col flex justify-start items-center border p-[5px] right-1.5 border-black border-opacity-50 overflow-y-scroll overflow-x-hidden rounded h-[185px] bg-white top-8`} style={{ maxHeight: '200px' }}>
-              <button onClick={onChange} value={"Toshkent"} className={style}>
-                Toshkent
-              </button>
-              <button onClick={onChange} value={"Jizzax"} className={style}>
-                Jizzax
-              </button>
-              <button onClick={onChange} value={"Samarqand"} className={style}>
-                Samarqand
-              </button>
-              <button onClick={onChange} value={"Bukhoro"} className={style}>
-                Bukhoro
-              </button>
-              <button onClick={onChange} value={"Navoiy"} className={style}>
-                Navoiy
-              </button>
-              <button onClick={onChange} value={"Qarshi"} className={style}>
-                Qarshi
-              </button>
-              <button onClick={onChange} value={"Nukus"} className={style}>
-                Nukus
-              </button>
-              <button onClick={onChange} value={"Andijon"} className={style}>
-                Andijon
-              </button>
+              {State.map((item, i) => (
+
+                <button key={i} onClick={onChange} value={item} className={style}>
+                  {item}
+                </button>
+              ))}
+
             </ul>
           </div>
           <div className='ml-5'>
             {usdToUzs !== null && eurToUzs !== null && rubToUzs !== null ? (
               <div className="flex gap-3">
                 <p className='flex items-center gap-1'>
-                USD {usdToUzs.toFixed(2)}{usdStatus}
+                  USD {usdToUzs.toFixed(2)}{usdStatus}
                 </p>
                 <p className='flex items-center gap-1'>EUR {eurToUzs.toFixed(2)}{eurStatus} </p>
                 <p className='flex items-center gap-1'>RUB {rubToUzs.toFixed(2)}{rubStatus} </p>
@@ -176,7 +160,7 @@ export default function FirstHeader() {
                 ? "text-[#E50914]"
                 : ""
             }>
-              Aloqa
+              Contacts
             </NavLink>
 
           </p>
@@ -186,7 +170,7 @@ export default function FirstHeader() {
                 ? "text-[#E50914]"
                 : ""
             }>
-              Reklama
+              Adv
             </NavLink></p>
           <a href="https://telegram.org">
 

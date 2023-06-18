@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import img from '../img/2oqi 1.png';
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
-
-export default function MiniSwiper({ isOpen2, open2,isOpen3, open3, setCountry, data, fetchData }) {
+import data from '../Data'
+export default function MiniSwiper({ isOpen2, open2,isOpen3, setCountry, }) {
     const countrys = [
         'ae', 'ar', 'at', 'au', 'be', 'bg', 'br', 'ca', 'ch', 'cn', 'co', 'cu', 'cz', 'de', 'eg', 'fr', 'gb', 'gr', 'hk', 'hu', 'id', 'ie', 'il', 'in', 'it', 'jp', 'kr', 'lt', 'lv', 'ma', 'mx', 'my', 'ng', 'nl', 'no', 'nz', 'ph', 'pl', 'pt', 'ro', 'rs', 'ru', 'sa', 'se', 'sg', 'si', 'sk', 'th', 'tr', 'tw', 'ua', 'us', 've', 'za'
     ];
@@ -13,7 +13,7 @@ export default function MiniSwiper({ isOpen2, open2,isOpen3, open3, setCountry, 
         setCountry(event.target.value);
         isOpen2(false);
         isOpen3(false);
-        fetchData();
+        
     };
 
     const swiperRef = React.useRef(null);
@@ -46,9 +46,9 @@ export default function MiniSwiper({ isOpen2, open2,isOpen3, open3, setCountry, 
     }
     return (
         <div>
-          <div className={`${open2  ? 'block duration-700' : 'hidden'} w-full h-[349px] z-40 absolute rounded bg-white drop-shadow-lg flex -right-1 top-[105px]`}>
+          <div className={`${open2  ? 'block  h-[349px]' : ' h-0'} w-full  z-40 absolute rounded bg-white drop-shadow-lg flex -right-1 duration-700 top-[105px]`}>
 
-                <div className='w-[10%] h-[349px] overflow-x-hidden'>
+                <div className='w-[10%] h-[100%] overflow-x-hidden'>
                     {countrys.map((item, i) => (
                         <div key={i} className='px-[5px] py-2 flex flex-col justify-center items-center text-black w-[100px]'>
                             <button className='w-full rounded p-1 active:bg-[#E50914] hover:bg-[#E5091433]' onClick={changeCountry} value={item}>
@@ -64,9 +64,9 @@ export default function MiniSwiper({ isOpen2, open2,isOpen3, open3, setCountry, 
                                 <div className='w-[330px] p-4 text-[18px]'>
                                     <img className='h-[180px] object-cover w-full rounded' src={item.urlToImage ? item.urlToImage : img} alt='' />
                                     <div className='absolute items-center px-4 top-[20px] flex justify-between w-full text-[14px]'>
-                                        <p className='p-1 mt-1 text-white bg-[#E50914] left-2'>{item.source.name}</p>
+                                        <p className='p-1 mt-1 text-white bg-[#E50914] left-2'>{item.category}</p>
                                     </div>
-                                    <Link onClick={close} to={`/products/${item.publishedAt}`}>
+                                    <Link onClick={close} to={`/products/${item.id}`}>
                                         <p className='hover:text-[#E50914]'>
                                             {item.title.length > 50 ? `${item.title.slice(0, 80)}...` : item.title}
                                         </p>
@@ -76,7 +76,7 @@ export default function MiniSwiper({ isOpen2, open2,isOpen3, open3, setCountry, 
                             </SwiperSlide>
                         ))}
                     </Swiper>
-                    <div className='flex h-[15%] justify-center gap-3 items-center '>
+                    <div className={`${open2 ? 'flex h-[15%] justify-center gap-3 items-center ' : 'hidden'}`}>
                         <button onClick={handlePrev} className='w-[30px] flex justify-center swiper-button-prev active:bg-[#E50914] duration-75 items-center h-[30px] text-white bg-black rounded-full'>
                             <AiOutlineArrowLeft />
                         </button>

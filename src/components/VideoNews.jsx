@@ -6,10 +6,10 @@ import { BsCalendar4, BsEye } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
 import { useRef } from 'react';
-
+import data from '../Data'
 // Install the necessary Swiper components
 
-const VideoNews = ({ data }) => {
+const VideoNews = () => {
   const sliderRef = useRef(null);
     const handlePrev = () => {
         sliderRef.current.slickPrev(); // Use slickPrev() instead of slickNext()
@@ -47,7 +47,7 @@ const VideoNews = ({ data }) => {
   return (
     <div className='container'>
       <div className='border-b-2 items-center mt-[60px] justify-between text-[20px] flex border-red-500'>
-        <p className='bg-[#E50914] text-white p-3 rounded-t-[10px]'>Video yangiliklar</p>
+        <p className='bg-[#E50914] text-white p-3 rounded-t-[10px]'>Video news</p>
         <div className='flex gap-3'>
           <button onClick={handlePrev} className='w-[30px] flex justify-center swiper-button-prev active:bg-[#E50914] duration-75 items-center h-[30px] text-white bg-black rounded-full'><AiOutlineArrowLeft /></button>
           <button onClick={handleNext} className='w-[30px] flex justify-center swiper-button-next active:bg-[#E50914] duration-75 items-center h-[30px] text-white bg-black rounded-full'><AiOutlineArrowRight /></button>
@@ -62,10 +62,10 @@ const VideoNews = ({ data }) => {
             <div className='xl:w-[300px] w-full p-4 text-[18px]'>
               <img className='h-[200px] object-cover w-full rounded' src={item.urlToImage ? item.urlToImage : img} alt="" />
               <div className='absolute items-center px-4 top-[20px] flex justify-between w-full text-[14px]'>
-                <p className='p-1 mt-1 text-white bg-[#E50914] left-2'>{item.source.name}</p>
+                <p className='p-1 mt-1 text-white bg-[#E50914] left-2'>{item.category}</p>
   
               </div>
-              <Link to={`/products/${item.publishedAt}`}>
+              <Link to={`/products/${item.id}`}>
                 <p className='hover:text-[#E50914]'>
                   {item.title.length > 50 ? `${item.title.slice(0, 50)}...` : item.title}
                 </p>

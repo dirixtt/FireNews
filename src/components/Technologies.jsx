@@ -16,17 +16,17 @@ export default function Technologies({ technology }) {
                         <div className='mb-10'>
                             <div className=' text-black text-opacity-50 gap-1 my-[23px] text-[14px] flex'>
 
-                                <Link to="/">Uy</Link>/<Link className='text-[#E50914]' to="/texnologiya">Texnologiya</Link>
+                                <Link to="/">Home</Link>/<Link className='text-[#E50914]' to="/technology">technology</Link>
                             </div>
                             <div className='w-full border-b border-[#E50914]'>
-                                <p className='text-[#E50914]  flex items-center text-[24px] font-semibold  pb-[10px] gap-2'>Texnologiya</p>
+                                <p className='text-[#E50914]  flex items-center text-[24px] font-semibold  pb-[10px] gap-2'>technology</p>
                             </div>
                         </div>
                         <div className='flex justify-between'>
                             <div className='relative w-full xl:w-[49.5%] h-auto xl:h-[400px] rounded '>
-                                <img className='object-cover w-full rounded h-[250px]' src={technology[2].urlToImage} alt="" />
-                                <div className='absolute text-[14px] xl:text-[18px] p-[8px] bg-black bg-opacity-30 w-full text-white h-[35%] bottom-0 '>
-                                    <Link className='hover:text-red-500' to={`/products/${technology[2].publishedAt}`}>
+                                <img className='object-cover w-full rounded h-[400px]' src={technology[2].urlToImage} alt="" />
+                                <div className='absolute text-[14px] xl:text-[18px] p-[8px] bg-black bg-opacity-30 w-full text-white h-[30%] bottom-0 '>
+                                    <Link className='duration-200 hover:text-[#E50914]' to={`/products/${technology[2].publishedAt}`}>
                                         {technology[2].title}
                                     </Link >
                                     <div className='text-[14px] gap-3 flex mt-3'>
@@ -46,22 +46,22 @@ export default function Technologies({ technology }) {
                                     </div>
                                 </div>
                                 <div className='absolute items-center px-4 top-[20px] rounded-b flex justify-between w-full text-[14px]'>
-                                    <p className=' p-1 text-white bg-[#E50914] left-2'>{technology[2].source.name}</p>
+                                    <p className=' p-1 text-white bg-[#E50914] left-2'>{technology[2].category}</p>
                                     <p className='p-2 rounded text-lg text-white bg-[#E50914] flex justify-center items-center'><BsFillLightningFill /></p>
                                 </div>
                             </div>
                             <div className='relative hidden xl:flex w-[49.5%] h-[400px] rounded '>
-                                <img className='object-cover w-full rounded h-full' src={technology[10].urlToImage} alt="" />
+                                <img className='object-cover w-full rounded h-full' src={technology[0].urlToImage} alt="" />
                                 <div className='absolute text-[18px] p-[8px] bg-black bg-opacity-30 w-full text-white h-[30%] bottom-0 '>
-                                    <Link className='hover:text-red-500' to={`/products/${technology[10].publishedAt}`}>
-                                        {technology[10].title}
+                                    <Link className='hover:text-[#E50914] duration-200' to={`/products/${technology[0].publishedAt}`}>
+                                        {technology[0].title}
                                     </Link >
                                     <div className='text-[14px] gap-3 flex mt-3'>
                                         <p className='flex items-center gap-2'>
                                             <p className='bg-[#FFFFFFE6] p-1 rounded'>
                                                 <BsCalendar4 className=' text-[#E50914]' />
                                             </p>
-                                            {dayjs(technology[10].publishedAt).format("DD MMM, YYYY")}
+                                            {dayjs(technology[0].publishedAt).format("DD MMM, YYYY")}
                                         </p>
                                         |
                                         <p className="flex gap-2 ">
@@ -73,7 +73,7 @@ export default function Technologies({ technology }) {
                                     </div>
                                 </div>
                                 <div className='absolute items-center px-4 top-[20px] rounded-b flex justify-between w-full text-[14px]'>
-                                    <p className=' p-1 text-white bg-[#E50914] left-2'>{technology[10].source.name}</p>
+                                    <p className=' p-1 text-white bg-[#E50914] left-2'>{technology[0].category}</p>
                                     <p className='p-2 rounded text-lg text-white bg-[#E50914] flex justify-center items-center'><BsFillLightningFill /></p>
                                 </div>
                             </div>
@@ -83,7 +83,7 @@ export default function Technologies({ technology }) {
                                 <div key={idx} className='w-full xl:w-[49%] flex mt-[20px] h-[130px]'>
                                     <img className='min-w-[35%] max-w-[35%] rounded h-full object-cover' src={item.urlToImage ? item.urlToImage : img} alt="" />
                                     <div className='ml-3 pb-0 flex justify-between flex-col items-start text-[18px] font-semibold'>
-                                        <Link className='hover:text-red-500 md:text-xl text-sm' to={`/products/${item.publishedAt}`}>
+                                        <Link className='hover:text-[#E50914] duration-200 md:text-xl text-sm' to={`/products/${item.id}`}>
                                             <h2>{item.title}</h2>
                                         </Link>
                                         <div className='text-[12px] gap-3 flex mt-3'>

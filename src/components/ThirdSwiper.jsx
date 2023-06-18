@@ -64,12 +64,12 @@ export default function ThirdSwiper({
     return (
         <div className='hidden md:block'>
             {business.length && entertainment.length ? (
-                <div className=' flex-col xl:flex-row justify-between'>
+                <div className=' flex-col xl:flex-row flex justify-between'>
                     <div className='w-full xl:w-[49.5%] pl-2'>
                         <div className='border-b-2 items-center mt-[60px] justify-between text-[20px] flex border-red-500'>
                             <p className='bg-[#E50914] text-white p-3 rounded-t-[10px]'>
-                                <Link to='/iqtisodiyot'>
-                                Iqdisodiyot
+                                <Link to='/business'>
+                                Business
                                 </Link>
                                 </p>
                             <div className='flex gap-3'>
@@ -91,7 +91,7 @@ export default function ThirdSwiper({
                                                 alt=""
                                             />
                                             <div className="ml-3 rounded pb-0 flex justify-between flex-col items-start text-[18px] font-semibold">
-                                                <Link className='hover:text-[#E50914]' to={`/products/${item.publishedAt}`}>
+                                                <Link className='hover:text-[#E50914]' to={`/products/${item.id}`}>
 
                                                     <h2>{item.title}</h2>
                                                 </Link>
@@ -125,8 +125,8 @@ export default function ThirdSwiper({
                         <div className='border-b-2 items-center mt-[60px] justify-between text-[20px] flex border-red-500'>
                             
                             <p className='bg-[#E50914] text-white p-3 rounded-t-[10px]'>
-                                <Link to='/jamiyat'>
-                                Jamiyat
+                                <Link to='/society'>
+                                Society
                                 </Link>
                             
 
@@ -150,7 +150,7 @@ export default function ThirdSwiper({
                                                 alt=""
                                             />
                                             <div className="ml-3 rounded pb-0 flex justify-between flex-col items-start text-[18px] font-semibold">
-                                                <Link className='hover:text-[#E50914]' to={`/products/${item.publishedAt}`}>
+                                                <Link className='hover:text-[#E50914]' to={`/products/${item.id}`}>
 
                                                     <h2>{item.title}</h2>
                                                 </Link>

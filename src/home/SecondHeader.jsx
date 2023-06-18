@@ -7,7 +7,7 @@ import { Link, NavLink } from 'react-router-dom';
 import MiniSwiper from './MiniSwiper';
 import Burger from '../components/Burger';
 
-function SecondHeader({ setSelectedLan, selectedLan, handleSearch, searchTerm, setCountry,country, data, fetchData }) {
+function SecondHeader({ selectedLan, handleSearch, searchTerm, setCountry,country, data, fetchData }) {
   const [open, isOpen] = useState(false);
   const [openBurger, isOpenBurger] = useState(false);
   const [open2, isOpen2] = useState(false);
@@ -15,27 +15,12 @@ function SecondHeader({ setSelectedLan, selectedLan, handleSearch, searchTerm, s
   const lan = ["ar", 'de', 'en', 'es', 'fr', 'he', 'it', 'nl', 'no', 'pt', 'ru', 'sv', 'ud', 'zh'];
 
   const onChange = (event) => {
-    setSelectedLan(event.target.value);
     isOpen(false);
-    fetchData();
   };
 
   const ref = useRef(null);
-  const style = `flex items-center gap-2 h-full`;
+  const style = `flex items-center text-[20px] gap-2 h-full`;
 
-  // useEffect(() => {
-  //   const handleClickOutside = (event) => {
-  //     if (!ref.current || !ref.current.contains(event.target)) {
-  //       isOpen2(false);
-  //     }
-  //   };
-
-  //   window.addEventListener('click', handleClickOutside);
-
-  //   return () => {
-  //     window.removeEventListener('click', handleClickOutside);
-  //   };
-  // }, [isOpen2]);
   return (
     <div className='h-[103px] bg-[#E50914]'>
       <div className='container relative flex justify-between  items-center h-full'>
@@ -58,7 +43,7 @@ function SecondHeader({ setSelectedLan, selectedLan, handleSearch, searchTerm, s
                   navClass.isActive
                     ? "border-white border-b-2 h-full"
                     : "h-full border-b-2 border-transparent"} to='/worldnews'>
-                  <button className={style} ref={ref} onClick={() => isOpen2(!open2)}>Dunyo yangiliklari<BsChevronDown /></button>
+                  <button className={style} ref={ref} onClick={() => isOpen2(!open2)}>World news<BsChevronDown /></button>
 
                 </NavLink>
               </div>
@@ -67,8 +52,8 @@ function SecondHeader({ setSelectedLan, selectedLan, handleSearch, searchTerm, s
                 <NavLink className={(navClass) =>
                   navClass.isActive
                     ? "border-white border-b-2 flex items-center h-full"
-                    : "h-full border-b-2 border-transparent flex items-center"} to='/iqtisodiyot'>
-                  Iqtisodiyot
+                    : "h-full border-b-2 border-transparent flex items-center"} to='/business'>
+                  Business
                 </NavLink>
               </div>
               <div className='flex text-lg  h-full gap-2 items-center'>
@@ -76,8 +61,8 @@ function SecondHeader({ setSelectedLan, selectedLan, handleSearch, searchTerm, s
                 <NavLink className={(navClass) =>
                   navClass.isActive
                     ? "border-white border-b-2 flex items-center h-full"
-                    : "h-full border-b-2 border-transparent flex items-center"} to='/jamiyat'>
-                  Jamiyat
+                    : "h-full border-b-2 border-transparent flex items-center"} to='/society'>
+                  Society
                 </NavLink>
               </div>
               <div className='flex text-lg  h-full gap-2 items-center'>
@@ -94,14 +79,14 @@ function SecondHeader({ setSelectedLan, selectedLan, handleSearch, searchTerm, s
                 <NavLink className={(navClass) =>
                   navClass.isActive
                     ? "border-white border-b-2 flex items-center h-full"
-                    : "h-full border-b-2 border-transparent flex items-center"} to='/texnologiya'>
-                  Texnologiya
+                    : "h-full border-b-2 border-transparent flex items-center"} to='/technology'>
+                  Technology
                 </NavLink>
               </div>
 
               <div className='flex text-lg  h-full gap-2 items-center'>
 
-                <button className={style} ref={ref} onClick={() => isOpen2(!open2)}>Viloyatlar<BsChevronDown /></button>
+                <button className={style} ref={ref} onClick={() => isOpen2(!open2)}>States<BsChevronDown /></button>
               </div>
             </ul>
             <MiniSwiper setCountry={setCountry} data={data} isOpen2={isOpen2} fetchData={fetchData} open2={open2} />

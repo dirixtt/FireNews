@@ -46,6 +46,7 @@ const Workers = [
       img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVE7RJ7nFSSFfujYqV0oKDKEaKrVDUZtHcsQ&usqp=CAU',
       name: 'Raximjonov Xurshidjon Alisher o‘g‘li',
       post: 'Job Title 8'
-    }
+    },
+
   ];
 export default Workers

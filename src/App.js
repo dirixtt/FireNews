@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, {  useState } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import FirstHeader from './home/FirstHeader'
 import SecondHeader from './home/SecondHeader'
 import FamousNews from './components/famousNews'
 import MostNews from './components/MostNews'
-import axios from 'axios';
 import emailjs from 'emailjs-com';
 import TrendNews from './components/TrendNews'
 import FireNews from './components/FireNews'
@@ -25,108 +24,27 @@ import Technologies from './components/Technologies'
 import Workers from './home/Workers'
 import About from './components/About'
 import Search from './home/Search'
+import data from './Data'
 export default function App() {
 
-  const apiKey = '0c5ae748f67442659f3ecdb1a7704f2a';
-  const [data, setData] = useState([]);
   const [selectedLan, setSelectedLan] = useState("en")
   const [country, setCountry] = useState('')
 
 
+  const sport = data.filter((item) => item.category === 'sport');
+  const business = data.filter((item) => item.category === 'business');
+  const technology = data.filter((item) => item.category === 'technology');
+  const entertainment = data.filter((item) => item.category === 'society');
 
-  const fetchData = async () => {
-    try {
-      const response = await axios.get(`https://newsapi.org/v2/top-headlines`, {
-        params: {
-          country: country,
-          language: selectedLan,
-          apiKey: apiKey,
-        },
-      });
-      setData(response.data.articles);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-  useEffect(() => {
-    fetchData();
-  }, [selectedLan, country]);
-
-  useEffect(() => {
-    if (selectedLan) {
-      fetchData();
-    }
-  }, [selectedLan]);
- 
-
-
-
-  const [business, setBusiness] = useState([]);
-  const [sport, setSport] = useState([]);
-  const [technology, setTechnology] = useState([]);
-  const [entertainment, setEntertainment] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(`https://newsapi.org/v2/top-headlines?language=en&country=us&category=sport&apiKey=${apiKey}`);
-        const jsonData = await response.json();
-        setSport(jsonData.articles);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchData();
-  }, []);
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(`https://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=${apiKey}`);
-        const jsonData = await response.json();
-        setTechnology(jsonData.articles);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchData();
-  }, []);
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(`https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=${apiKey}`);
-        const jsonData = await response.json();
-        setBusiness(jsonData.articles);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchData();
-  }, []);
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(`https://newsapi.org/v2/top-headlines?country=us&category=entertainment&apiKey=${apiKey}`);
-        const jsonData = await response.json();
-        setEntertainment(jsonData.articles);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchData();
-  }, []);
 
   const [searchTerm, setSearchTerm] = useState("")
   const filteredProducts = []
-  .concat(data, business, sport, technology, entertainment)
-  .filter((item) =>
-    item.title && typeof item.title === 'string' &&
-    item.title.toLowerCase().includes(searchTerm.toLowerCase())
+    .concat(data, business, sport, technology, entertainment)
+    .filter((item) =>
+      item.title && typeof item.title === 'string' &&
+      item.title.toLowerCase().includes(searchTerm.toLowerCase())
 
-  );
+    );
 
 
   const handleSearch = (e) => {
@@ -138,7 +56,7 @@ export default function App() {
     <>
       <BrowserRouter>
         <FirstHeader />
-        <SecondHeader data={data}  handleSearch={handleSearch} searchTerm={searchTerm} setSelectedLan={setSelectedLan} country={country} setCountry={setCountry} fetchData={fetchData} selectedLan={selectedLan} />
+        <SecondHeader data={data} handleSearch={handleSearch} searchTerm={searchTerm} setSelectedLan={setSelectedLan} country={country} setCountry={setCountry} selectedLan={selectedLan} />
 
         <ScrollToTopButton />
         <Routes>
@@ -150,10 +68,10 @@ export default function App() {
             sport={sport}
             data={data} />} />
           <Route path="/about" element={<About />} />
-          <Route path="/texnologiya" element={<Technologies technology={technology} />} />
-          <Route path="/jamiyat" element={<Entertainment entertainment={entertainment} />} />
+          <Route path="/technology" element={<Technologies technology={technology} />} />
+          <Route path="/society" element={<Entertainment entertainment={entertainment} />} />
           <Route path="/sport" element={<Sport sport={sport} />} />
-          <Route path="/iqtisodiyot" element={<Bussnuis business={business} />} />
+          <Route path="/business" element={<Bussnuis business={business} />} />
           <Route path="/firenews" element={<FireNews data={data} />} />
           <Route path="/famousnews" element={<FamousNews2 data={data} />} />
           <Route path="/mostviewednews" element={<MostNews data={data} />} />
@@ -165,7 +83,7 @@ export default function App() {
           <Route path="/search" element={<Search filteredProducts={filteredProducts} />} />
 
           <Route
-            path="/products/:publishedAt"
+            path="/products/:id"
             element={<More
               data={data}
               business={business}

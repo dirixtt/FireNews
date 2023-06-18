@@ -16,29 +16,29 @@ export default function Footer() {
                     <div className='text-white w-full flex-col md:flex-row md:w-1/2 flex'>
                         <div className=''>
                             <Link to='/'>
-                            <img src={img} alt="" />
+                                <img src={img} alt="" />
                             </Link>
                             <p className='w-[350px] font-semibold mt-[20px] text-white text-[15px] '>
-                                <Link to='/about' className='text-red-600'> FIRE.news </Link> Web-Site OAV sifatida 2029 yil 26 oktyabr kuni Administratsiyasi huzuridagi Axborot va om
-                                maviy kommunikatsiyalar agentligidan raqam bilan ro‘yxatga olingan.</p>
-                            <p className='flex hover:text-red-500 items-center gap-2 mt-[16px]'><CgHome className='text-xl' />15 Cliff St, New York NY 10038, USA</p>
-                            <p className='flex hover:text-red-500 items-center gap-2 mt-[16px]'><BsTelephoneFill className='text-xl' />+91 234 567 8765</p>
-                            <p className='flex hover:text-red-500 items-center gap-2 mt-[16px]'><HiOutlineMailOpen className='text-xl' /><a href="gmail.com">FireNews@gmail.com</a></p>
+                                <Link to='/about' className='text-red-600'> FIRE.news </Link> Web-Site as mass media on October 26, 2029 under the Administration of Information and Public
+                                registered with a number from the Blue Communications Agency.</p>
+                            <p className='flex hover:text-[#E50914] items-center gap-2 mt-[16px]'><CgHome className='text-xl' />15 Cliff St, New York NY 10038, USA</p>
+                            <p className='flex hover:text-[#E50914] items-center gap-2 mt-[16px]'><BsTelephoneFill className='text-xl' />+91 234 567 8765</p>
+                            <p className='flex hover:text-[#E50914] items-center gap-2 mt-[16px]'><HiOutlineMailOpen className='text-xl' /><a href="gmail.com">FireNews@gmail.com</a></p>
                         </div>
                         <ul className='md:mt-14 flex gap-5 md:flex-col md:ml-10'>
-                            <li className='hover:text-red-500 mt-[16px]'>
+                            <li className='hover:text-[#E50914] mt-[16px]'>
                                 <Link to='/contacts'>
-                                    Aloqa
+                                    Contact
                                 </Link>
                             </li>
-                            <li className='hover:text-red-500 mt-[16px]'>
+                            <li className='hover:text-[#E50914] mt-[16px]'>
                                 <Link to='/adv'>
-                                    Reklama
+                                    Advertising
                                 </Link>
                             </li>
-                            <li className='hover:text-red-500 mt-[16px]'>
+                            <li className='hover:text-[#E50914] mt-[16px]'>
                                 <Link to='/firenewsteam'>
-                                    FireNews jamosi
+                                    FireNews team
                                 </Link>
                             </li>
                         </ul>
@@ -74,7 +74,7 @@ export default function Footer() {
                     </div>
                 </div>
                 <div className='py-2 text-white flex justify-center text-[12px] md:text-lg items-center h-10 '>
-                    <p>© 2030 FireNews Barcha huquqlar himoyalangan</p>
+                    <p>© 2030 FireNews All rights reserved</p>
                 </div>
 
             </div>

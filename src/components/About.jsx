@@ -11,7 +11,7 @@ export default function About() {
 
                     <p className="mt-5">Ishonamizki, <span className='text-red-600'>FireNews.uz</span>  axborot-tahliliy internet-nashrini ham sevib o‘qib boradi. Bunga 8 yillik faoliyatimiz davomida kun sayin amin bo‘lib boryapmiz. FireNews odamlarning kundalik ehtiyojiga aylanib ulgurgan bo‘lsa, ne ajab.</p>
                     <p className='mt-5'>
-                        Mazkur loyiha 2029 yilning yanvar oyidan o‘z ishini boshlagan bo‘lib, uning asosiy maqsadi O‘zbekiston OAV sohasida yangilikka qo‘l urish, xolis, shaffof axborot maydonini yaratish, hech kim so‘z ochmagan, aytishga jur’at topilmagan mavzularni qalamga olib, odamlarning muammolarini hal etish, jamiyatni faqat buguni bilan yashash emas, balki ertasi, uzoq kelajakni oldindan ko‘rib, shunga yarasha intilishga undashdan iborat.
+                        Mazkur loyiha 2029 yilning yanvar oyidan o‘z ishini boshlagan bo‘lib, uning asosiy maqsadi O‘zbekiston OAV sohasida yangilikka qo‘l urish, xolis, shaffof axborot maydonini yaratish, hech kim so‘z ochmagan, aytishga jur’at topilmagan mavzularni qalamga olib, odamlarning muammolarini hal etish, societyni faqat buguni bilan yashash emas, balki ertasi, uzoq kelajakni oldindan ko‘rib, shunga yarasha intilishga undashdan iborat.
                     </p>
                 </div>
 

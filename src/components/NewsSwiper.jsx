@@ -14,10 +14,10 @@ export default function NewsSwiper({data}) {
                   <div className='pl-2 md:p-0'>
 
                     <div className='absolute md:flex hidden items-center px-4 top-[20px]  justify-between w-full text-[14px]'>
-                      <p className='p-1 mt-1 text-white bg-[#E50914] left-2'>{item.source.name}</p>
+                      <p className='p-1 mt-1 text-white bg-[#E50914] left-2'>{item.category}</p>
 
                     </div>
-                    <Link to={`/products/${item.publishedAt} `}>
+                    <Link to={`/products/${item.id} `}>
                       <p className='hover:text-[#E50914] md:text-xl text-[15px] font-semibold'>
                         {item.title.length > 50 ? `${item.title.slice(0, 50)}...` : item.title}
                       </p>
