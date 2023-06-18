@@ -4,7 +4,7 @@ export default function Workers() {
   return (
     <div>
         <div className='my-10 container'>
-            <h1 className='text-[32px] font-semibold'>FireNews jamosi</h1>
+            <h1 className='text-[32px] font-semibold'>FireNews team</h1>
             <div className='w-full mt-5 justify-center  flex  flex-wrap'>
                 {Data?.map((item) => (
                    <div className='drop-shadow-lg mx-[10px] w-[250px] my-8 flex flex-col items-center justify-center' key={item.id}>

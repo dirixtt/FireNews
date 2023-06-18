@@ -35,7 +35,7 @@ export default function Aloqa() {
             <div className="container ">
                 <div className=' xl:w-[80%]'>
 
-                    <h1 className='text-[20px] md:text-[32px] font-semibold py-10'>Tahririyat bilan bog‘lanish</h1>
+                    <h1 className='text-[20px] md:text-[32px] font-semibold py-10'>Contact the editor</h1>
                     <div className='flex-col md:justify-around w-full flex xl:flex-col md:flex-row'>
 
                         <div className='flex flex-col xl:flex-row  justify-between'>
@@ -44,7 +44,7 @@ export default function Aloqa() {
                                     <img src={img1} alt="" />
                                 </div>
                                 <div >
-                                    <h1 className='text-[20px] font-semibold ' >Tahririyat manzili</h1>
+                                    <h1 className='text-[20px] font-semibold ' >Editorial address</h1>
                                     <p className='text-[14px] text-opacity-50 text-black '>15 Cliff St, New York NY 10038,
                                         USA</p>
                                 </div>
@@ -54,7 +54,7 @@ export default function Aloqa() {
                                     <img src={img2} alt="" />
                                 </div>
                                 <div >
-                                    <h1 className='text-[20px] font-semibold ' >Elektron manzil</h1>
+                                    <h1 className='text-[20px] font-semibold ' > Email address</h1>
                                     <p className='text-[14px] text-opacity-50 text-black '>FireNews@gmail.com</p>
                                 </div>
                             </div>
@@ -71,23 +71,23 @@ export default function Aloqa() {
                         <div>
                             <div className='xl:mt-[60px] flex flex-col xl:flex-row justify-between'>
                                 <label className='flex mx-[10px] flex-col text-[24px]' htmlFor="name">
-                                    Ism
+                                    Name
                                     <input name='name' onChange={handleChange} value={name} className='my-4 border outline-[#E50914] p-[18px] outline-[2px] text-[16px] rounded-lg w-[300px]' type="text" placeholder='Ur Name' />
                                 </label>
                                 <label className='flex mx-[10px] flex-col text-[24px]' htmlFor="name">
-                                    Pochta
-                                    <input name='email' onChange={handleChange} value={email} className='my-4 border outline-[#E50914] p-[18px] outline-[2px] text-[16px] rounded-lg w-[300px]' type="text" placeholder='E-pochta manzilini kraiting' />
+                                    Email
+                                    <input name='email' onChange={handleChange} value={email} className='my-4 border outline-[#E50914] p-[18px] outline-[2px] text-[16px] rounded-lg w-[300px]' type="text" placeholder='Enter ur e-mail' />
                                 </label>
                                 <label className='flex mx-[10px] flex-col text-[24px]' htmlFor="name">
-                                    Telefon raqam
-                                    <input name='number' onChange={handleChange} value={number} className='my-4 border outline-[#E50914] p-[18px] outline-[2px] text-[16px] rounded-lg w-[300px]' type="text" placeholder='Telefon raqamingizni kiriting' />
+                                    Phone number
+                                    <input name='number' onChange={handleChange} value={number} className='my-4 border outline-[#E50914] p-[18px] outline-[2px] text-[16px] rounded-lg w-[300px]' type="text" placeholder='Enter ur phone number' />
                                 </label>
                             </div>
                         </div>
                     </div>
                     <label className='flex flex-col text-[24px]' htmlFor="message">
-                        Xabar
-                        <textarea name='message' onChange={handleChange} value={message} className='my-4 border outline-[#E50914] p-[18px] min-w-[950px] outline-[2px] text-[16px] rounded-lg min-h-[250px]' placeholder='Xabar matnini kiriting' ></textarea>
+                        Message
+                        <textarea name='message' onChange={handleChange} value={message} className='my-4 border outline-[#E50914] p-[18px] min-w-[950px] outline-[2px] text-[16px] rounded-lg min-h-[250px]' placeholder='Enter message' ></textarea>
                     </label>
                     <button className='flex bg-[#E50914] items-center text-white gap-1 text-[16px] px-3 py-2 rounded ' type='submit' >Send <RiSendPlane2Fill /></button>
 

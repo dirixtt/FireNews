@@ -104,7 +104,7 @@ function SecondHeader({ selectedLan, handleSearch, searchTerm, setCountry,countr
                 <input
                   type="text"
                   className="outline-none px-1 h-full bg-transparent text-black w-full"
-                  placeholder="Qidiruv"
+                  placeholder="Search"
                   value={searchTerm} onChange={handleSearch}
                 />
                 <button onClick={() => isOpenSearch(false)} className='w-[20%] text-xl text-opacity-50 flex items-center justify-center h-full text-black'>
