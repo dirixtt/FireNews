@@ -117,7 +117,7 @@ function SecondHeader({ selectedLan, handleSearch, searchTerm, setCountry,countr
 
           </div>
           <div className='flex text-xl  relative gap-2 items-center'>
-            <button onClick={() => isOpen(!open)}>{selectedLan}</button><BsChevronDown />
+            <button className='flex items-center gap-2' onClick={() => isOpen(!open)}>{selectedLan}<BsChevronDown /></button>
             <div className={`${open ? "block duration-700" : "hidden"} overflow-x-auto h-[130px] absolute rounded bg-white drop-shadow-lg -right-1 top-7`}>
               {lan.map((item, i) => {
                 return <div key={i} className=" px-[5px] py-1 flex flex-col justify-center items-center  text-black w-[65px]">

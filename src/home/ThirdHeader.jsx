@@ -8,7 +8,7 @@ export default function ThirdHeader() {
     const style = `hover:text-[#E50914]  text-[15px] border-b-black border-opacity-25 border-b border-r border-r-black border-opacity-25  flex-col py-2 px-2 md:py-5 items-center justify-center md:justify-between h-full flex`
     return (
 
-        <div className='w-full container flex justify-center items-center'>
+        <div className='md:w-full xl:w-[60%] container flex justify-center items-center'>
             <ul className='flex w-[85%] md:w-full xl:1/2 text-black justify-center items-center flex-col md:flex-row md:h-[80px] h-[150px] font-semibold text-opacity-50 border-white mt-5 '>
                 <div className=' flex w-full items-center justify-center md:h-full h-[60px]'>
 

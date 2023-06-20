@@ -76,7 +76,7 @@ export default function SecondSwiper({ sport, technology }) {
                 <div className='flex justify-between'>
                     <div className='xl:w-[49.5%] w-full pr-2 relative'>
                         <div className='border-b-2 items-center mt-[60px] justify-between text-[20px] flex border-red-500'>
-                            <p className='bg-[#E50914] text-white p-3 rounded-t-[10px]'>
+                            <p className='bg-[#E50914] text-white py-3 px-5 rounded-t-[10px]'>
                                 <Link to="/sport">
                                     Sport
                                 </Link>
@@ -104,8 +104,8 @@ export default function SecondSwiper({ sport, technology }) {
                                                 </p>
                                                 <div className='text-[14px] gap-3 flex mt-3'>
                                                     <p className='flex items-center gap-2'>
-                                                        <i className='bg-[#fbbcbce6] p-1 rounded'>
-                                                            <BsCalendar4 className='text-[#E50914]' />
+                                                        <i className='bg-[#fbbcbce6]  p-1 rounded'>
+                                                            <BsCalendar4 className='font-bold text-[#E50914]' />
                                                         </i>
                                                         {item.publishedAt ? dayjs(item.publishedAt).format('DD MMM, YYYY') : 'No time'}
                                                     </p>
@@ -143,18 +143,24 @@ export default function SecondSwiper({ sport, technology }) {
                                             <div className="text-[12px] gap-3 flex mt-3">
                                                 <p className="flex items-center gap-2">
                                                     <span className="bg-[#fbbcbce6] p-1 rounded">
-                                                        <BsCalendar4 className="text-[#E50914]" />
+                                                        <BsCalendar4 className="text-[#E50914] " />
                                                     </span>
-                                                    {item.publishedAt
-                                                        ? dayjs(item.publishedAt).format('DD MMM, YYYY')
-                                                        : 'No time'}
+                                                    <span className='text-opacity-50 text-black font-bold'>
+
+                                                        {item.publishedAt
+                                                            ? dayjs(item.publishedAt).format('DD MMM, YYYY')
+                                                            : 'No time'}
+                                                    </span>
                                                 </p>
                                                 |
                                                 <p className="flex gap-2">
                                                     <span className="bg-[#fbbcbce6] text-[#E50914] p-1 rounded">
                                                         <BsEye />
                                                     </span>
-                                                    {item.publishedAt.slice(0, 3)}
+                                                    <span className='text-opacity-60 text-black font-bold'>
+
+                                                        {item.publishedAt.slice(0, 3)}
+                                                    </span>
                                                 </p>
                                             </div>
                                         </div>
@@ -167,7 +173,7 @@ export default function SecondSwiper({ sport, technology }) {
                     </div>
                     <div className='w-[49.5%] hidden xl:block pr-2 relative'>
                         <div className='border-b-2 items-center mt-[60px] justify-between text-[20px] flex border-red-500'>
-                            <p className='bg-[#E50914] text-white p-3 rounded-t-[10px]'>
+                            <p className='bg-[#E50914] text-white py-3 px-5 rounded-t-[10px]'>
                                 <Link to='/technology'>
                                     Technology
                                 </Link>
@@ -234,18 +240,24 @@ export default function SecondSwiper({ sport, technology }) {
                                             <div className="text-[12px] gap-3 flex mt-3">
                                                 <p className="flex items-center gap-2">
                                                     <span className="bg-[#fbbcbce6] p-1 rounded">
-                                                        <BsCalendar4 className="text-[#E50914]" />
+                                                        <BsCalendar4 className="text-[#E50914] " />
                                                     </span>
-                                                    {item.publishedAt
-                                                        ? dayjs(item.publishedAt).format('DD MMM, YYYY')
-                                                        : 'No time'}
+                                                    <span className='text-opacity-60 text-black font-bold'>
+
+                                                        {item.publishedAt
+                                                            ? dayjs(item.publishedAt).format('DD MMM, YYYY')
+                                                            : 'No time'}
+                                                    </span>
                                                 </p>
                                                 |
                                                 <p className="flex gap-2">
                                                     <span className="bg-[#fbbcbce6] text-[#E50914] p-1 rounded">
                                                         <BsEye />
                                                     </span>
-                                                    {item.publishedAt.slice(0, 3)}
+                                                    <span className='text-opacity-60 text-black font-bold'>
+
+                                                        {item.publishedAt.slice(0, 3)}
+                                                    </span>
                                                 </p>
                                             </div>
                                         </div>

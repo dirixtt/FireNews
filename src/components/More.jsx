@@ -62,7 +62,7 @@ export default function More({ sport, data, entertainment, technology, business 
           <div className="mt-[40px] justify-between xl:flex-row flex-col flex">
             <div className="xl:w-[65%]">
               <div>
-                <img className="w-full rounded-lg h-[250px] md:h-[400px] xl:h-[450px]" src={product.urlToImage} alt="" />
+                <img className="w-full object-cover rounded-lg h-[250px] md:h-[400px] xl:h-[450px]" src={product.urlToImage} alt="" />
                 <h1 className="text-[25px] font-[500]">
                   <a href={product.url}>{product.title}</a>
                 </h1>
@@ -163,7 +163,7 @@ export default function More({ sport, data, entertainment, technology, business 
                   <div key={idx} className='w-full  flex mb-[20px] h-[100px]'>
                     <img className='min-w-[35%] max-w-[35%] rounded h-full object-cover' src={item.urlToImage ? item.urlToImage : img} alt="" />
                     <div className='ml-3 pb-0 flex justify-between flex-col items-start text-[12px] font-semibold'>
-                      <Link className='hover:text-[#E50914]  ' to={`/products/${item.id}`}>
+                      <Link className='hover:text-[#E50914] text-sm  xl:text-lg' to={`/products/${item.id}`}>
                         <h2>{item.title}</h2>
                       </Link>
                       <div className='text-[12px] gap-3 flex mt-3'>
